@@ -1,8 +1,12 @@
 import {should} from 'chai';
 should();
 
-describe('true', () => {
-    it('should be true', () => {
-        true.should.be.true;
+import {run} from './sandbox';
+
+describe('intercept', () => {
+    context('when BinaryExpression', () => {
+        it('should not change visible behaviour', () => {
+            run(() => 2 + 2).should.be.equal(4);
+        });
     });
 });
