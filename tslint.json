@@ -9,6 +9,7 @@
     "missing-jsdoc": false,
     "no-relative-imports": false,
     "quotemark": [true, "double", "avoid-escape"],
+    "interface-name": [true, "never-prefix"],
     "max-line-length": [true, 80],
     "max-func-body-length": [true, 10, {"ignore-parameters-to-function-regex": "describe"}],
     "variable-name": [true, "ban-keywords", "check-format"]
