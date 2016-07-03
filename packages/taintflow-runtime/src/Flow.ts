@@ -8,4 +8,8 @@ export class Flow<T> {
     public get isTainted() {
         return false;
     }
+
+    public get give() {
+        return this.value;
+    }
 }

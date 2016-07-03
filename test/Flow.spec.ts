@@ -9,5 +9,9 @@ describe('Flow', () => {
         it('should not be recognized as tainted', () => {
             run(() => new Flow('').isTainted).should.be.false;
         });
+
+        it('should be released as it is', () => {
+            run(() => new Flow('').give).should.equal('');
+        });
     });
 });
