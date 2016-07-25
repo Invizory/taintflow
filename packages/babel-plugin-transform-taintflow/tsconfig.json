@@ -4,10 +4,10 @@
     "target": "es5",
     "declaration": true,
     "sourceMap": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "strictNullChecks": true
   },
-  "exclude": [
-    "node_modules",
-    "dist"
+  "include": [
+    "src"
   ]
 }
