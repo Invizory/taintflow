@@ -2,6 +2,11 @@
   "compileOnSave": false,
   "compilerOptions": {
     "target": "es5",
-    "noImplicitAny": true
-  }
+    "noImplicitAny": true,
+    "baseUrl": ".",
+    "paths": {
+      "vm": ["node_modules/@types/node/index.d.ts"]
+    }
+  },
+  "files": []
 }
