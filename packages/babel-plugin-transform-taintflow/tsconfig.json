@@ -7,8 +7,7 @@
     "noImplicitAny": true,
     "strictNullChecks": true
   },
-  "exclude": [
-    "node_modules",
-    "dist"
+  "include": [
+    "src"
   ]
 }
