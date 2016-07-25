@@ -12,7 +12,7 @@ type Primitive = boolean | number | string | symbol | void;
 // tslint:disable-next-line: export-name
 export function run<T extends Primitive>(func: () => T): T {
     const {code} = transform(`(${func.toString()})()`);
-    return new vm.Script(code).runInNewContext({
+    return new vm.Script(<string> code).runInNewContext({
         "taintflow_runtime_1": runtime,
     });
 }
