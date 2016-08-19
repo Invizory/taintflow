@@ -13,6 +13,70 @@ TaintFlow performs prior source code instrumentation which allows you to:
 * Improve your debugging experience since TaintFlow can observe any interesting
 data flow in code and intercept it.
 
+## Components
+
+TaintFlow primarily consists of the following two components:
+
+* [Transformer] is responsible for source code instrumentation.
+* [Runtime] is responsible for runtime support of instrumented code.
+
+In order to use TaintFlow features, you should firstly perform prior source code
+instrumentation with [Transformer] and then provide required [Runtime]
+dependency.
+
+However, these components used alone don't provide any useful features, since
+[Runtime] itself do nothing but provide extension point that can be used by
+another—maybe user-supplied—components which takes advantage of the source code
+instrumentation.
+
+## Transformer
+
+Given, for example, a JavaScript code like
+
+```javascript
+var foo = bar();
+```
+
+TaintFlow transforms it into the following form:
+
+```javascript
+var foo = ψ({type: "CallExpression"}, {
+    callee: () => new ψ.Identifier(() => bar),
+    arguments: () => [],
+}).value;
+```
+
+> Note: The function `ψ` here is a part of [Runtime] which should be exported
+> globally for this code to work.
+
+Of course, such instrumentation also implies significant slowdown (around 3-5
+times), so it makes no sense to transform code for running in production
+environment.
+
+## Runtime
+
+By default, the `ψ` function do nothing but evaluate intercepted expressions
+in a standard way JavaScript behaves. However, it can be extended to provide
+custom non-standard behaviour.
+
+Example for brevity:
+
+```javascript
+import {RValue, extend} from "taintflow-runtime";
+
+extend((intercept, context) => {
+    // if we are calling some function from instrumented code,
+    // then just return "ha-ha!" instead
+    if (context.literals.type === "CallExpression") {
+        return new RValue("ha-ha!");
+    }
+    // otherwise, evaluate as usual
+    return intercept(context);
+});
+```
+
+Obviously, such extensions can be chained to provide some complex behaviour.
+
 ## Copyright
 
 Copyright © 2016 [Arthur Khashaev]. See [license] for details.
@@ -20,6 +84,8 @@ Copyright © 2016 [Arthur Khashaev]. See [license] for details.
 [Arthur Khashaev]: https://khashaev.ru
 [TaintFlow]: https://github.com/Invizory/taintflow
 [license]: LICENSE.txt
+[Transformer]: #transformer
+[Runtime]: #runtime
 
 [taintflow-logo]: https://khashaev.ru/static/taintflow.png
 [travis-image]: https://api.travis-ci.com/Invizory/taintflow.svg?token=WkVhXoQxLrMaL8YrwSfP
