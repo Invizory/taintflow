@@ -1,13 +1,17 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
+    "module": "commonjs",
     "noImplicitAny": true,
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
       "vm": ["node_modules/@types/node/index.d.ts"]
-    }
+    },
+    "outDir": "dist"
   },
-  "files": []
+  "include": [
+    "test/**/*"
+  ]
 }
