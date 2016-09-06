@@ -1,3 +1,5 @@
+import "mocha";
+
 import {should} from "chai";
 should();
 

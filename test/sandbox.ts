@@ -1,5 +1,3 @@
-import "mocha";
-
 import * as babel from "babel-core";
 import * as vm from "vm";
 
