@@ -3,6 +3,7 @@
     "../tslint.json"
   ],
   "rules": {
-    "no-unused-expression": false
+    "no-unused-expression": false,
+    "max-func-body-length": [true, 100, {"ignore-parameters-to-function-regex": "describe"}]
   }
 }
