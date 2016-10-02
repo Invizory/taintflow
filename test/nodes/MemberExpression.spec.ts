@@ -3,7 +3,7 @@ import "mocha";
 import {should} from "chai";
 should();
 
-import {MemberExpression, Identifier, RValue} from "./taintflow-runtime";
+import {MemberExpression, Identifier, RValue} from "../taintflow-runtime";
 
 describe("MemberExpression", () => {
     context("like foo.bar", () => {

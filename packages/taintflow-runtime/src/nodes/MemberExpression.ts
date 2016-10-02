@@ -1,13 +1,8 @@
 import {
     QuotedExpression,
-    EvaluatedExpression,
+    EvaluatingNode,
     PropertyReference,
-} from "./taxonomy";
-
-export interface EvaluatingNode<Value> {
-    readonly kind: string;
-    evaluate(): EvaluatedExpression<Value>;
-}
+} from "../taxonomy";
 
 export interface MemberExpressionDescription<Object, Property> {
     readonly object: QuotedExpression<Object>;
