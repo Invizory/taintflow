@@ -17,8 +17,8 @@
   "scripts": {
     "postinstall": "lerna bootstrap",
     "pretest": "rm -rf dist/test && tsc",
-    "test": "mocha dist/test/**/*.spec.js",
-    "lint": "tslint packages/*/src/**/*.ts test/**/*.ts"
+    "test": "mocha 'dist/test/**/*.spec.js'",
+    "lint": "tslint 'packages/*/src/**/*.ts' 'test/**/*.ts'"
   },
   "devDependencies": {
     "@types/babel-core": "^6.7.13",
