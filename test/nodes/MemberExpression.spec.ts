@@ -7,8 +7,10 @@ import {MemberExpression, Identifier, RValue} from "../taintflow-runtime";
 
 describe("MemberExpression", () => {
     context("like foo.bar", () => {
-        let foo: {bar: string};
-        let expr: MemberExpression<{bar: string}, string>;
+        type Foo = {bar: string};
+
+        let foo: Foo;
+        let expr: MemberExpression<Foo, string>;
 
         beforeEach(() => {
             foo = {bar: "baz"};
