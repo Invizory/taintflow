@@ -2,12 +2,14 @@
   "compilerOptions": {
     "outDir": "dist",
     "target": "es6",
+    "module": "commonjs",
+    "typeRoots": ["node_modules/@types"],
     "declaration": true,
     "sourceMap": true,
     "noImplicitAny": true,
     "strictNullChecks": true
   },
   "include": [
-    "src"
+    "src/**/*"
   ]
 }
