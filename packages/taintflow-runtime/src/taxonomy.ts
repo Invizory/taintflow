@@ -6,6 +6,9 @@ export interface EvaluatingNode<Value> {
 export type QuotedExpression<Value> =
     () => EvaluatedExpression<Value>;
 
+export type QuotedArgumentsExpression =
+    () => ReadonlyArray<EvaluatedExpression<{}>>;
+
 export type EvaluatedExpression<Value>
     = RValue<Value>
     | Reference<Value>;
@@ -16,10 +19,17 @@ export type Reference<Value>
 
 export interface HasValue<T> {
     readonly value: T;
+    readonly kind: ValueKind;
+}
+
+export enum ValueKind {
+    RValue,
+    Identifier,
+    PropertyReference,
 }
 
 export class RValue<T> implements HasValue<T> {
-    public readonly kind: "RValue";
+    public readonly kind: ValueKind.RValue = ValueKind.RValue;
     public readonly value: T;
 
     constructor(value: T) {
@@ -28,7 +38,7 @@ export class RValue<T> implements HasValue<T> {
 }
 
 export class Identifier<T> implements HasValue<T> {
-    public readonly kind: "Identifier";
+    public readonly kind: ValueKind.Identifier = ValueKind.Identifier;
     private readonly quotedValue: () => T;
 
     constructor(quotedValue: () => T) {
@@ -41,9 +51,10 @@ export class Identifier<T> implements HasValue<T> {
 }
 
 export class PropertyReference<Base, T> implements HasValue<T> {
-    public readonly kind: "PropertyReference";
-    private readonly base: Base;
-    private readonly propertyKey: PropertyKey;
+    public readonly kind: ValueKind.PropertyReference =
+                          ValueKind.PropertyReference;
+    public readonly base: Base;
+    public readonly propertyKey: PropertyKey;
 
     constructor(base: Base, propertyKey: PropertyKey) {
         this.base = base;

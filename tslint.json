@@ -6,6 +6,7 @@
     "tslint-config-ms-recommended"
   ],
   "rules": {
+    "no-banned-terms": false,
     "missing-jsdoc": false,
     "no-relative-imports": false,
     "quotemark": [true, "double", "avoid-escape"],
