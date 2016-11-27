@@ -16,7 +16,7 @@
   },
   "scripts": {
     "postinstall": "lerna bootstrap",
-    "pretest": "rm -rf dist/test && tsc",
+    "pretest": "rm -rf dist && tsc",
     "test": "mocha 'dist/test/**/*.spec.js'",
     "lint": "tslint 'packages/*/src/**/*.ts' 'test/**/*.ts'"
   },
