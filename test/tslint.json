@@ -4,6 +4,9 @@
   ],
   "rules": {
     "no-unused-expression": false,
-    "max-func-body-length": [true, 100, {"ignore-parameters-to-function-regex": "describe"}]
+    "max-func-body-length": [true, 100, {"ignore-parameters-to-function-regex": "describe"}],
+
+    // FIXME: should be removed after fixing tslint-microsoft-contrib.
+    "mocha-no-side-effect-code": false
   }
 }

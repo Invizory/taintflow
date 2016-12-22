@@ -3,7 +3,7 @@
     "node_modules/tslint-microsoft-contrib"
   ],
   "extends": [
-    "tslint-config-ms-recommended"
+    "tslint-microsoft-contrib/recommended_ruleset"
   ],
   "rules": {
     "no-banned-terms": false,
@@ -13,6 +13,11 @@
     "interface-name": [true, "never-prefix"],
     "max-line-length": [true, 80],
     "max-func-body-length": [true, 10, {"ignore-parameters-to-function-regex": "describe"}],
-    "variable-name": [true, "ban-keywords", "check-format"]
+    "variable-name": [true, "ban-keywords", "check-format"],
+    "trailing-comma": [true, {"singleline": "never", "multiline": "always"}],
+
+    // Typechecks required
+    "no-for-in-array": false,
+    "restrict-plus-operands": false
   }
 }
