@@ -22,6 +22,13 @@
     "prepublish": "tsc"
   },
   "devDependencies": {
-    "typescript": "^2.0.0"
+    "typescript": "^2.1.4"
+  },
+  "dependencies": {
+    "@types/babel-core": "^6.7.14",
+    "@types/babel-traverse": "^6.7.15",
+    "@types/lodash": "^4.14.43",
+    "babel-core": "^6.21.0",
+    "lodash": "^4.17.2"
   }
 }

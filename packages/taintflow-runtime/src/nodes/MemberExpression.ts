@@ -1,7 +1,7 @@
 import {
-    QuotedExpression,
     EvaluatingNode,
     PropertyReference,
+    QuotedExpression,
 } from "../taxonomy";
 
 export interface MemberExpressionDescription<Object, Property> {
@@ -16,8 +16,8 @@ export class MemberExpression<Object, Property extends PropertyKey>
     public readonly object: QuotedExpression<Object>;
     public readonly property: QuotedExpression<Property>;
 
-    constructor(node: MemberExpressionDescription<Object, Property>) {
-        Object.assign(this, node);
+    constructor(description: MemberExpressionDescription<Object, Property>) {
+        Object.assign(this, description);
     }
 
     public evaluate() {

@@ -10,8 +10,8 @@
 TaintFlow performs prior source code instrumentation which allows you to:
 
 * Find DOM XSS vulnerabilities with taint analysis.
-* Improve your debugging experience since TaintFlow can observe any interesting
-data flow in code and intercept it.
+* Improve your debugging experience since TaintFlow can observe any data flow
+in code and intercept it.
 
 ## Components
 
@@ -40,14 +40,15 @@ var foo = bar();
 TaintFlow transforms it into the following form:
 
 ```javascript
-var foo = ψ({type: "CallExpression"}, {
-    callee: () => new ψ.Identifier(() => bar),
+var foo = taintflow.intercept({
+    type: "CallExpression",
+    callee: () => new taintflow.Identifier(() => bar),
     arguments: () => [],
 }).value;
 ```
 
-> Note: The function `ψ` here is a part of [Runtime] which should be exported
-> globally for this code to work.
+> Note: The [Runtime] namespace `taintflow` here should be exported globally
+> for this code to work.
 
 Of course, such instrumentation also implies significant slowdown (around 3-5
 times), so it makes no sense to transform code for running in production
@@ -55,23 +56,23 @@ environment.
 
 ## Runtime
 
-By default, the `ψ` function do nothing but evaluate intercepted expressions
-in a standard way JavaScript behaves. However, it can be extended to provide
-custom non-standard behaviour.
+By default, the `intercept` function do nothing but evaluate intercepted
+expressions in a standard way JavaScript behaves. However, it can be extended
+to provide custom non-standard behaviour.
 
 Example for brevity:
 
 ```javascript
 import {RValue, extend} from "taintflow-runtime";
 
-extend((intercept, context) => {
+extend((description, intercept) => {
     // if we are calling some function from instrumented code,
     // then just return "ha-ha!" instead
-    if (context.literals.type === "CallExpression") {
+    if (description.type === "CallExpression") {
         return new RValue("ha-ha!");
     }
     // otherwise, evaluate as usual
-    return intercept(context);
+    return intercept(description);
 });
 ```
 
