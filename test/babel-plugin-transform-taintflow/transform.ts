@@ -45,12 +45,12 @@ function returnExpression(ast?: types.Node) {
     const lastStatement = [...body.body].pop();
     if (!lastStatement || !types.isReturnStatement(lastStatement)) {
         throw new Error(
-            "Body of given function should end with ReturnStatement."
+            "Body of given function should end with ReturnStatement.",
         );
     }
     if (!lastStatement.argument) {
         throw new Error(
-            "ReturnStatement of given function should contain argument."
+            "ReturnStatement of given function should contain argument.",
         );
     }
     return lastStatement.argument;
@@ -62,7 +62,7 @@ class AstError extends Error {
     constructor(nodeType: string) {
         super(
             "AST of given function was transformed to something different " +
-            `from ${nodeType}.`
+            `from ${nodeType}.`,
         );
     }
 }

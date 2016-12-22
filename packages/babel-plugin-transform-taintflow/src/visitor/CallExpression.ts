@@ -7,7 +7,7 @@ import {quotedArrayOfExpressions} from "../interception/quoted";
 import {NodePathInterceptor} from "./NodePathInterceptor";
 
 const interceptor = new NodePathInterceptor(
-    (node) => CallExpressionInterceptor.intercepted(node)
+    (node) => CallExpressionInterceptor.intercepted(node),
 );
 
 export namespace CallExpression {
@@ -27,7 +27,7 @@ class CallExpressionInterceptor extends NodeInterceptor<types.CallExpression> {
         const args = this.node.arguments;
         if (!isExpressions(args)) {
             throw new TranspilationError(
-                "Some argument of CallExpression is not Expression."
+                "Some argument of CallExpression is not Expression.",
             );
         }
         return quotedArrayOfExpressions(args);

@@ -5,7 +5,7 @@ import {NodeInterceptor} from "../interception";
 import {NodePathInterceptor} from "./NodePathInterceptor";
 
 const interceptor = new NodePathInterceptor(
-    (node) => NodeInterceptor.intercepted(node)
+    (node) => NodeInterceptor.intercepted(node),
 );
 
 export namespace MemberExpression {
