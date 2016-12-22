@@ -6,7 +6,7 @@ should();
 import {run} from "./sandbox";
 import {isInstrumented} from "./taintflow-runtime";
 
-describe("isInstrumented", () => {
+xdescribe("isInstrumented", () => {
     context("when FunctionDeclaration", () => {
         it("should be recognized as instrumented", () => {
             run(() => {
