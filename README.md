@@ -89,6 +89,6 @@ Copyright © 2016 [Arthur Khashaev]. See [license] for details.
 [Runtime]: #runtime
 
 [taintflow-logo]: https://khashaev.ru/static/taintflow.png
-[travis-image]: https://api.travis-ci.com/Invizory/taintflow.svg?token=WkVhXoQxLrMaL8YrwSfP
+[travis-image]: https://travis-ci.com/Invizory/taintflow.svg?token=WkVhXoQxLrMaL8YrwSfP&branch=master
 [travis-url]: https://travis-ci.com/Invizory/taintflow
 [license-image]: https://img.shields.io/badge/license-MIT-green.svg
