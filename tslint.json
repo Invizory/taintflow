@@ -15,6 +15,7 @@
     "max-func-body-length": [true, 10, {"ignore-parameters-to-function-regex": "describe"}],
     "variable-name": [true, "ban-keywords", "check-format"],
     "trailing-comma": [true, {"singleline": "never", "multiline": "always"}],
+    "function-name": [true, {"static-method-regex": "^[a-z][\\w\\d]+$"}],
 
     // Typechecks required
     "no-for-in-array": false,
