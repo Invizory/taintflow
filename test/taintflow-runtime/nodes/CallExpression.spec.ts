@@ -5,18 +5,18 @@ should();
 
 import {
     CallExpression,
-    RValue,
     Identifier,
     PropertyReference,
-} from "../taintflow-runtime";
+    RValue,
+} from "../../taintflow-runtime";
 
 describe("CallExpression", () => {
-    context("like id(x)", () => {
+    context("like `id(x)`", () => {
         function id<T>(x: T) {
             return x;
         }
 
-        it("should evaluate to x", () => {
+        it("should evaluate to `x`", () => {
             const x = "x";
             new CallExpression({
                 callee: () => new Identifier(() => id),
@@ -25,7 +25,7 @@ describe("CallExpression", () => {
         });
     });
 
-    context("like foo.bar()", () => {
+    context("like `foo.bar()`", () => {
         class Foo {
             public bar() {
                 return this;

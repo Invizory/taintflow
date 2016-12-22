@@ -3,10 +3,10 @@ import "mocha";
 import {should} from "chai";
 should();
 
-import {MemberExpression, Identifier, RValue} from "../taintflow-runtime";
+import {Identifier, MemberExpression, RValue} from "../../taintflow-runtime";
 
 describe("MemberExpression", () => {
-    context("like foo.bar", () => {
+    context("like `foo.bar`", () => {
         type Foo = {bar: string};
 
         let foo: Foo;
