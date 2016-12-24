@@ -26,7 +26,7 @@ export enum ValueKind {
 }
 
 export class RValue<T> implements HasValue<T> {
-    public readonly kind: ValueKind.RValue = ValueKind.RValue;
+    public readonly kind = ValueKind.RValue;
     public readonly value: T;
 
     constructor(value: T) {
@@ -35,7 +35,7 @@ export class RValue<T> implements HasValue<T> {
 }
 
 export class Identifier<T> implements HasValue<T> {
-    public readonly kind: ValueKind.Identifier = ValueKind.Identifier;
+    public readonly kind = ValueKind.Identifier;
     private readonly quotedValue: () => T;
 
     constructor(quotedValue: () => T) {
@@ -48,8 +48,7 @@ export class Identifier<T> implements HasValue<T> {
 }
 
 export class PropertyReference<Base, T> implements HasValue<T> {
-    public readonly kind: ValueKind.PropertyReference =
-                          ValueKind.PropertyReference;
+    public readonly kind = ValueKind.PropertyReference;
     public readonly base: Base;
     public readonly propertyKey: PropertyKey;
 
