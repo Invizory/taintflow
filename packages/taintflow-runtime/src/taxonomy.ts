@@ -1,8 +1,10 @@
+export type Mixed = {} | undefined;
+
 export type QuotedExpression<Value> =
     () => EvaluatedExpression<Value>;
 
 export type QuotedArgumentsExpression =
-    () => ReadonlyArray<EvaluatedExpression<{}>>;
+    () => ReadonlyArray<EvaluatedExpression<Mixed>>;
 
 export type EvaluatedExpression<Value>
     = RValue<Value>
@@ -10,7 +12,7 @@ export type EvaluatedExpression<Value>
 
 export type Reference<Value>
     = Identifier<Value>
-    | PropertyReference<{}, Value>;
+    | PropertyReference<Mixed, Value>;
 
 export interface HasValue<T> {
     readonly value: T;
