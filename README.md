@@ -25,7 +25,7 @@ instrumentation with [Transformer] and then provide required [Runtime]
 dependency.
 
 However, these components used alone don't provide any useful features, since
-[Runtime] itself do nothing but provide extension point that can be used by
+[Runtime] itself does nothing but provide extension point that can be used by
 another—maybe user-supplied—components which takes advantage of the source code
 instrumentation.
 
