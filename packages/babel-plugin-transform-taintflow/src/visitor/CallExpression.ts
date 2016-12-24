@@ -1,6 +1,5 @@
 import {types} from "babel-core";
 import {NodePath} from "babel-traverse";
-import * as _ from "lodash";
 
 import {NodeInterceptor} from "../interception";
 import {quotedArrayOfExpressions} from "../interception/quoted";
@@ -35,7 +34,7 @@ class CallExpressionInterceptor extends NodeInterceptor<types.CallExpression> {
 }
 
 function isExpressions(nodes: types.Node[]): nodes is types.Expression[] {
-    return _(nodes).every(types.isExpression);
+    return nodes.every(types.isExpression);
 }
 
 class TranspilationError extends Error {
