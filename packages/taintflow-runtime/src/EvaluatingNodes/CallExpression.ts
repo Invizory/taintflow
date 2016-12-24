@@ -1,11 +1,11 @@
 import {
     EvaluatedExpression,
-    EvaluatingNode,
     QuotedArgumentsExpression,
     QuotedExpression,
     RValue,
     ValueKind,
 } from "../taxonomy";
+import {EvaluatingNode} from "./EvaluatingNode";
 
 export interface CallExpressionDescription {
     readonly callee: QuotedExpression<Function>;
@@ -13,9 +13,9 @@ export interface CallExpressionDescription {
 }
 
 export class CallExpression
-    implements EvaluatingNode<{}>,
-               CallExpressionDescription {
-    public readonly kind: "CallExpression";
+       implements EvaluatingNode<{}>,
+                  CallExpressionDescription {
+    public readonly kind = "CallExpression";
     public readonly callee: QuotedExpression<Function>;
     public readonly arguments: QuotedArgumentsExpression;
 

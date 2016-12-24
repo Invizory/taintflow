@@ -4,21 +4,21 @@ import {should} from "chai";
 should();
 
 import {
-    CallExpression,
+    EvaluatingNodes,
     Identifier,
     PropertyReference,
     RValue,
 } from "../../taintflow-runtime";
 
-describe("CallExpression", () => {
-    context("like `id(x)`", () => {
+describe("EvaluatingNodes.CallExpression", () => {
+    context("like `id(\"x\")`", () => {
         function id<T>(x: T) {
             return x;
         }
 
         it("should evaluate to `x`", () => {
             const x = "x";
-            new CallExpression({
+            new EvaluatingNodes.CallExpression({
                 callee: () => new Identifier(() => id),
                 arguments: () => [new RValue(x)],
             }).evaluate().value.should.equal(x);
@@ -34,7 +34,7 @@ describe("CallExpression", () => {
 
         it("should preserve context", () => {
             const foo = new Foo();
-            new CallExpression({
+            new EvaluatingNodes.CallExpression({
                 callee: () => new PropertyReference<Foo, Function>(foo, "bar"),
                 arguments: () => [],
             }).evaluate().value.should.equal(foo);

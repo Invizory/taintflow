@@ -1,8 +1,3 @@
-export interface EvaluatingNode<Value> {
-    readonly kind: string;
-    evaluate(): EvaluatedExpression<Value>;
-}
-
 export type QuotedExpression<Value> =
     () => EvaluatedExpression<Value>;
 
