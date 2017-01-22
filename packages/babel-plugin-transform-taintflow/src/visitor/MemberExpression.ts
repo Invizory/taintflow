@@ -16,10 +16,10 @@ export namespace MemberExpression {
 }
 
 function ensureHasComputedProperty(node: types.MemberExpression) {
-    if (!types.isIdentifier(node.property)) {
+    if (node.computed) {
         return;
     }
-    const {name} = node.property;
+    const {name} = <types.Identifier> node.property;
     Object.assign(node, {
         property: types.stringLiteral(name),
         computed: true,
