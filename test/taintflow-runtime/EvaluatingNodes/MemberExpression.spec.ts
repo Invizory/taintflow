@@ -3,18 +3,18 @@ import "mocha";
 import {should} from "chai";
 should();
 
-import {Identifier, MemberExpression, RValue} from "../../taintflow-runtime";
+import {EvaluatingNodes, Identifier, RValue} from "../../taintflow-runtime";
 
-describe("MemberExpression", () => {
+describe("EvaluatingNodes.MemberExpression", () => {
     context("like `foo.bar`", () => {
         type Foo = {bar: string};
 
         let foo: Foo;
-        let expr: MemberExpression<Foo, string>;
+        let expr: EvaluatingNodes.MemberExpression<Foo, string>;
 
         beforeEach(() => {
             foo = {bar: "baz"};
-            expr = new MemberExpression({
+            expr = new EvaluatingNodes.MemberExpression({
                 object: () => new Identifier(() => foo),
                 property: () => new RValue("bar"),
             });

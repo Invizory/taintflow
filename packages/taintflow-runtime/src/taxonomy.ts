@@ -1,13 +1,10 @@
-export interface EvaluatingNode<Value> {
-    readonly kind: string;
-    evaluate(): EvaluatedExpression<Value>;
-}
+export type Mixed = {} | undefined;
 
 export type QuotedExpression<Value> =
     () => EvaluatedExpression<Value>;
 
 export type QuotedArgumentsExpression =
-    () => ReadonlyArray<EvaluatedExpression<{}>>;
+    () => ReadonlyArray<EvaluatedExpression<Mixed>>;
 
 export type EvaluatedExpression<Value>
     = RValue<Value>
@@ -15,7 +12,7 @@ export type EvaluatedExpression<Value>
 
 export type Reference<Value>
     = Identifier<Value>
-    | PropertyReference<{}, Value>;
+    | PropertyReference<Mixed, Value>;
 
 export interface HasValue<T> {
     readonly value: T;
@@ -29,7 +26,7 @@ export enum ValueKind {
 }
 
 export class RValue<T> implements HasValue<T> {
-    public readonly kind: ValueKind.RValue = ValueKind.RValue;
+    public readonly kind = ValueKind.RValue;
     public readonly value: T;
 
     constructor(value: T) {
@@ -38,7 +35,7 @@ export class RValue<T> implements HasValue<T> {
 }
 
 export class Identifier<T> implements HasValue<T> {
-    public readonly kind: ValueKind.Identifier = ValueKind.Identifier;
+    public readonly kind = ValueKind.Identifier;
     private readonly quotedValue: () => T;
 
     constructor(quotedValue: () => T) {
@@ -51,8 +48,7 @@ export class Identifier<T> implements HasValue<T> {
 }
 
 export class PropertyReference<Base, T> implements HasValue<T> {
-    public readonly kind: ValueKind.PropertyReference =
-                          ValueKind.PropertyReference;
+    public readonly kind = ValueKind.PropertyReference;
     public readonly base: Base;
     public readonly propertyKey: PropertyKey;
 
