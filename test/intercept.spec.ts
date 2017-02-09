@@ -12,6 +12,20 @@ describe("intercept", () => {
         });
     });
 
+    context("when LogicalExpression", () => {
+        it("should not change visible behaviour", () => {
+            run(() => false || true).should.be.true;
+        });
+
+        it("should follow short-circuit evaluation", () => {
+            run(() => {
+                let isEvaluated = false;
+                false && (() => isEvaluated = true)();
+                return isEvaluated;
+            }).should.be.false;
+        });
+    });
+
     context("when MemberExpression", () => {
         context("like `foo.bar`", () => {
             const foo = {bar: "bar"};

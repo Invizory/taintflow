@@ -14,4 +14,16 @@ describe("EvaluatingNodes.LogicalExpression", () => {
             }).evaluate().value).to.be.true;
         });
     });
+
+    context("like `false && expression`", () => {
+        it("should not evaluate `expression`", () => {
+            let isEvaluated = false;
+            new EvaluatingNodes.LogicalExpression({
+                operator: "&&",
+                left: () => new RValue(false),
+                right: () => new RValue(isEvaluated = true),
+            }).evaluate();
+            expect(isEvaluated).to.be.false;
+        });
+    });
 });
