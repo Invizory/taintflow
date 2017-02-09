@@ -1,5 +1,6 @@
 import {
     EvaluatedExpression,
+    Mixed,
     QuotedArgumentsExpression,
     QuotedExpression,
     RValue,
@@ -13,7 +14,7 @@ export interface CallExpressionDescription {
 }
 
 export class CallExpression
-       implements EvaluatingNode<{}>,
+       implements EvaluatingNode<Mixed>,
                   CallExpressionDescription {
     public readonly kind = "CallExpression";
     public readonly callee: QuotedExpression<Function>;
