@@ -1,4 +1,5 @@
 import {
+    Mixed,
     PropertyReference,
     QuotedExpression,
 } from "../taxonomy";
@@ -10,7 +11,7 @@ export interface MemberExpressionDescription<Object, Property> {
 }
 
 export class MemberExpression<Object, Property extends PropertyKey>
-       implements EvaluatingNode<{}>,
+       implements EvaluatingNode<Mixed>,
                   MemberExpressionDescription<Object, Property> {
     public readonly kind = "MemberExpression";
     public readonly object: QuotedExpression<Object>;
