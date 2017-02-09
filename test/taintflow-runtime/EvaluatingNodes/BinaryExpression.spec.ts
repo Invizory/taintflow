@@ -8,7 +8,7 @@ import {
     RValue,
 } from "../../taintflow-runtime";
 
-xdescribe("EvaluatingNodes.BinaryExpression", () => {
+describe("EvaluatingNodes.BinaryExpression", () => {
     context("like `2 + 2`", () => {
         it("should evaluate to `4`", () => {
             new EvaluatingNodes.BinaryExpression({

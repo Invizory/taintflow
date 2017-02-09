@@ -1,11 +1,10 @@
-import {
-    Mixed,
-    QuotedExpression,
-    RValue,
-} from "../taxonomy";
+import {QuotedExpression, RValue} from "../taxonomy";
 import {EvaluatingNode} from "./EvaluatingNode";
-
-const binaryOperators: BinaryOperators = {};
+import {
+    BinaryOperator,
+    BinaryOperatorResult,
+    binaryOperators,
+} from "./operators/binary";
 
 export interface BinaryExpressionDescription<Left, Right> {
     readonly operator: string;
@@ -14,7 +13,7 @@ export interface BinaryExpressionDescription<Left, Right> {
 }
 
 export class BinaryExpression<Left, Right>
-       implements EvaluatingNode<{}>,
+       implements EvaluatingNode<BinaryOperatorResult>,
                   BinaryExpressionDescription<Left, Right> {
     public readonly kind = "BinaryExpression";
     public readonly operator: string;
@@ -36,10 +35,3 @@ export class BinaryExpression<Left, Right>
         return new RValue(this.compiledOperator(this.left, this.right));
     }
 }
-
-interface BinaryOperators {
-    readonly [operator: string]: BinaryOperator<Mixed, Mixed>;
-}
-
-type BinaryOperator<Left, Right> =
-    (left: QuotedExpression<Left>, right: QuotedExpression<Right>) => {};
