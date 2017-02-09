@@ -5,6 +5,7 @@
   "rules": {
     "no-unused-expression": false,
     "max-func-body-length": [true, 100, {"ignore-parameters-to-function-regex": "describe"}],
-    "align": [true, "parameters", "statements"]
+    "align": [true, "parameters", "statements"],
+    "chai-vague-errors": false
   }
 }
