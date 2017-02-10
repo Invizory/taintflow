@@ -6,10 +6,7 @@ import {compile, Operators} from "./compilation";
 export type LogicalOperators = Operators<LogicalOperator<Mixed, Mixed>>;
 
 export type LogicalOperator<Left, Right> =
-    (left: QuotedExpression<Left>, right: QuotedExpression<Right>)
-    => LogicalOperatorResult;
-
-export type LogicalOperatorResult = Mixed;
+    (left: QuotedExpression<Left>, right: QuotedExpression<Right>) => Mixed;
 
 export const logicalOperators = <LogicalOperators> compile({
     operators: LOGICAL_OPERATORS,

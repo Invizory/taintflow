@@ -1,8 +1,4 @@
-import {
-    Mixed,
-    PropertyReference,
-    QuotedExpression,
-} from "../taxonomy";
+import {Mixed, PropertyReference, QuotedExpression} from "../taxonomy";
 import {EvaluatingNode} from "./EvaluatingNode";
 
 export interface MemberExpressionDescription<Object, Property> {
