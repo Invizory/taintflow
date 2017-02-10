@@ -1,17 +1,13 @@
-import {QuotedExpression, RValue} from "../taxonomy";
+import {Mixed, QuotedExpression, RValue} from "../taxonomy";
 import {BinaryExpressionDescription} from "./BinaryExpression";
 import {EvaluatingNode} from "./EvaluatingNode";
-import {
-    LogicalOperator,
-    LogicalOperatorResult,
-    logicalOperators,
-} from "./operators/logical";
+import {LogicalOperator, logicalOperators} from "./operators/logical";
 
 export type LogicalExpressionDescription<Left, Right> =
     BinaryExpressionDescription<Left, Right>;
 
 export class LogicalExpression<Left, Right>
-       implements EvaluatingNode<LogicalOperatorResult>,
+       implements EvaluatingNode<Mixed>,
                   LogicalExpressionDescription<Left, Right> {
     public readonly kind = "LogicalExpression";
     public readonly operator: string;

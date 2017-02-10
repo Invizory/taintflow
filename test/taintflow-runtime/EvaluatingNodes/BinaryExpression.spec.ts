@@ -3,10 +3,7 @@ import "mocha";
 import {should} from "chai";
 should();
 
-import {
-    EvaluatingNodes,
-    RValue,
-} from "../../taintflow-runtime";
+import {EvaluatingNodes, RValue} from "../../taintflow-runtime";
 
 describe("EvaluatingNodes.BinaryExpression", () => {
     context("like `2 + 2`", () => {
