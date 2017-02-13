@@ -45,6 +45,15 @@ export class Identifier<T> implements HasValue<T> {
     get value() {
         return this.quotedValue();
     }
+
+    get isDeclared() {
+        try {
+            this.quotedValue();
+        } catch (e) {
+            return false;
+        }
+        return true;
+    }
 }
 
 export class PropertyReference<Base, T> implements HasValue<T> {

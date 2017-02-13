@@ -18,8 +18,10 @@ export namespace ReturnExpressionCode {
 
 export function taintflowed(code: string) {
     return transform(code, {
-        presets: ["latest"],
-        plugins: [plugin],
+        plugins: [
+            "transform-es2015-arrow-functions",
+            plugin,
+        ],
     });
 }
 

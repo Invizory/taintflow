@@ -26,6 +26,30 @@ describe("intercept", () => {
         });
     });
 
+    context("when UnaryExpression", () => {
+        context("with undeclared variable `x`", () => {
+            const x = "";
+
+            context("like `typeof x`", () => {
+                it("should evaluate to `\"undefined\"` ", () => {
+                    run(() => typeof x).should.be.equal("undefined");
+                });
+            });
+
+            context("like `typeof void x`", () => {
+                it("should throw", () => {
+                    run(() => {
+                        try {
+                            typeof void x;
+                        } catch (e) {
+                            return e.name;
+                        }
+                    }).should.be.equal("ReferenceError");
+                });
+            });
+        });
+    });
+
     context("when MemberExpression", () => {
         context("like `foo.bar`", () => {
             const foo = {bar: "bar"};
