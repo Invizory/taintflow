@@ -1,6 +1,6 @@
 import {UNARY_OPERATORS} from "babel-types";
 
-import {Mixed, ValueKind, QuotedExpression} from "../../taxonomy";
+import {Mixed, QuotedExpression, ValueKind} from "../../taxonomy";
 import {compile, Operators} from "./compilation";
 
 export type UnaryOperators = Operators<UnaryOperator<Mixed>>;
