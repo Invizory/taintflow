@@ -1,6 +1,10 @@
 # Transpiled files for distribution
 dist
 
+# Coverage
+coverage
+.nyc_output
+
 # Typings
 typings
 
