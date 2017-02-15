@@ -27,13 +27,11 @@ describe("intercept", () => {
     });
 
     context("when UnaryExpression", () => {
-        context("with undeclared variable `x`", () => {
+        context("like typeof", () => {
             const x = "";
 
-            context("like `typeof x`", () => {
-                it("should evaluate to `\"undefined\"` ", () => {
-                    run(() => typeof x).should.be.equal("undefined");
-                });
+            it("should support unresolved identifiers", () => {
+                run(() => typeof x).should.be.equal("undefined");
             });
 
             context("like `typeof void x`", () => {
