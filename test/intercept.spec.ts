@@ -27,13 +27,21 @@ describe("intercept", () => {
     });
 
     context("when UnaryExpression", () => {
-        context("with undeclared variable `x`", () => {
+        context("like delete", () => {
+            it("should support property references", () => {
+                run(() => {
+                    const object = {property: 1};
+                    delete object.property;
+                    return object.hasOwnProperty("property");
+                }).should.be.false;
+            });
+        });
+
+        context("like typeof", () => {
             const x = "";
 
-            context("like `typeof x`", () => {
-                it("should evaluate to `\"undefined\"` ", () => {
-                    run(() => typeof x).should.be.equal("undefined");
-                });
+            it("should support unresolved identifiers", () => {
+                run(() => typeof x).should.be.equal("undefined");
             });
 
             context("like `typeof void x`", () => {

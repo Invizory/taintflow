@@ -24,6 +24,16 @@ export const unaryOperators = <UnaryOperators> {
         }
         return typeof evaluated.value;
     },
+    delete: (argument: QuotedExpression<Mixed>) => {
+        const evaluated = argument();
+        if (evaluated.kind === ValueKind.PropertyReference) {
+            return Reflect.deleteProperty(
+                evaluated.base,
+                evaluated.propertyKey,
+            );
+        }
+        return delete evaluated.value;
+    },
 };
 
 declare module "babel-types" {
