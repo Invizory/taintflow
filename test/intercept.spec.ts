@@ -27,6 +27,16 @@ describe("intercept", () => {
     });
 
     context("when UnaryExpression", () => {
+        context("like delete", () => {
+            it("should support property references", () => {
+                run(() => {
+                    const object = {property: 1};
+                    delete object.property;
+                    return object.hasOwnProperty("property");
+                }).should.be.false;
+            });
+        });
+
         context("like typeof", () => {
             const x = "";
 
