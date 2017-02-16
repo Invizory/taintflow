@@ -19,10 +19,12 @@
     "prepublish": "tsc"
   },
   "dependencies": {
-    "babel-plugin-transform-taintflow": "^0.0.0"
+    "taintflow-core": "^0.0.0",
+    "taintflow-simulator": "^0.0.0"
   },
   "devDependencies": {
     "@types/node": "^7.0.5",
-    "typescript": "^2.2.0"
+    "typescript": "^2.2.0",
+    "babel-plugin-transform-taintflow": "^0.0.0"
   }
 }
