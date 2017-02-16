@@ -22,7 +22,8 @@
     "prepublish": "tsc"
   },
   "devDependencies": {
-    "taintflow-core": "^0.0.0"
+    "taintflow-core": "^0.0.0",
+    "typescript": "^2.2.0"
   },
   "dependencies": {
     "@types/babel-core": "^6.7.14",

@@ -18,6 +18,9 @@
   "scripts": {
     "prepublish": "tsc"
   },
+  "devDependencies": {
+    "typescript": "^2.2.0"
+  },
   "dependencies": {
     "@types/babel-types": "^6.7.14",
     "babel-types": "^6.23.0"
