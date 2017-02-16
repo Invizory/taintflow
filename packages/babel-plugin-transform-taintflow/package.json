@@ -13,16 +13,16 @@
   "keywords": [
     "babel-plugin"
   ],
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "typings": "dist/src/index.d.ts",
   "files": [
-    "dist"
+    "dist/src"
   ],
   "scripts": {
     "prepublish": "tsc"
   },
   "devDependencies": {
-    "typescript": "^2.1.4"
+    "taintflow-core": "^0.0.0"
   },
   "dependencies": {
     "@types/babel-core": "^6.7.14",

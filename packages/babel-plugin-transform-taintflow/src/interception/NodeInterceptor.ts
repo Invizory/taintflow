@@ -20,11 +20,10 @@ export class NodeInterceptor<T extends types.Node> {
     }
 
     protected description(): NamedExpressions {
-        return Object.assign(
-            {},
-            literals(this.node),
-            quotedExpressions(this.node),
-        );
+        return {
+            ...literals(this.node),
+            ...quotedExpressions(this.node),
+        };
     }
 }
 

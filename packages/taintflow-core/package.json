@@ -1,7 +1,7 @@
 {
-  "name": "taintflow-runtime",
+  "name": "taintflow-core",
   "version": "0.0.0",
-  "description": "TaintFlow runtime.",
+  "description": "TaintFlow core.",
   "author": "Arthur Khashaev <arthur@khashaev.ru>",
   "license": "MIT",
   "homepage": "https://github.com/Invizory/taintflow",
@@ -10,18 +10,16 @@
     "type": "git",
     "url": "https://github.com/Invizory/taintflow.git"
   },
-  "main": "dist/src/index.js",
-  "typings": "dist/src/index.d.ts",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "files": [
-    "dist/src"
+    "dist"
   ],
   "scripts": {
     "prepublish": "tsc"
   },
   "dependencies": {
-    "babel-plugin-transform-taintflow": "^0.0.0"
-  },
-  "devDependencies": {
-    "@types/node": "^7.0.5"
+    "@types/babel-types": "^6.7.14",
+    "babel-types": "^6.23.0"
   }
 }
