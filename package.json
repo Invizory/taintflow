@@ -17,7 +17,7 @@
   "scripts": {
     "watch": "npm run prepublish && lerna exec -- tsc --watch",
     "postinstall": "lerna bootstrap",
-    "prepublish": "lerna exec --toposort -- npm run prepublish",
+    "prepublish": "lerna exec -- npm run prepublish",
     "pretest": "npm run prepublish > /dev/null",
     "test": "mocha 'packages/*/dist/test/**/*.spec.js'",
     "test:coverage": "nyc npm test",
@@ -33,7 +33,7 @@
     "babel-generator": "^6.21.0",
     "babel-preset-latest": "^6.16.0",
     "chai": "^4.0.0-canary.1",
-    "lerna": "2.0.0-beta.31",
+    "lerna": "2.0.0-beta.37",
     "mocha": "^3.0.2",
     "nyc": "^10.1.2",
     "tslint": "^4.1.1",

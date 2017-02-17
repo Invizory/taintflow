@@ -16,7 +16,7 @@
     "dist/src"
   ],
   "scripts": {
-    "prepublish": "tsc"
+    "prepublish": "rm -rf dist && tsc"
   },
   "dependencies": {
     "taintflow-core": "^0.0.0",
