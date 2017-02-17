@@ -1,7 +1,7 @@
 {
-  "name": "taintflow-runtime",
+  "name": "taintflow-simulator",
   "version": "0.0.0",
-  "description": "TaintFlow runtime.",
+  "description": "TaintFlow simulator.",
   "author": "Arthur Khashaev <arthur@khashaev.ru>",
   "license": "MIT",
   "homepage": "https://github.com/Invizory/taintflow",
@@ -18,13 +18,12 @@
   "scripts": {
     "prepublish": "tsc"
   },
+  "devDependencies": {
+    "typescript": "^2.2.0"
+  },
   "dependencies": {
     "taintflow-core": "^0.0.0",
-    "taintflow-simulator": "^0.0.0"
-  },
-  "devDependencies": {
-    "@types/node": "^7.0.5",
-    "typescript": "^2.2.0",
-    "babel-plugin-transform-taintflow": "^0.0.0"
+    "@types/lodash": "^4.14.52",
+    "lodash": "^4.17.4"
   }
 }
