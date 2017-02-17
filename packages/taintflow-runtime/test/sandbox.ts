@@ -11,7 +11,7 @@ export function run<T extends Primitive>(func: () => T, context?: {}): T {
         throw new Error("BabelFileResult.code is undefined.");
     }
     return new vm.Script(code).runInNewContext({
-        "taintflow_runtime_1": runtime,
+        "src_1": runtime,
         taintflow: runtime,
         ...context,
     });
