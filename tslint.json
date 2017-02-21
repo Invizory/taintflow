@@ -12,7 +12,7 @@
     "quotemark": [true, "double", "avoid-escape"],
     "interface-name": [true, "never-prefix"],
     "max-line-length": [true, 80],
-    "max-func-body-length": [true, 10, {"ignore-parameters-to-function-regex": "describe"}],
+    "max-func-body-length": [true, 11, {"ignore-parameters-to-function-regex": "describe"}],
     "variable-name": [true, "ban-keywords", "check-format"],
     "trailing-comma": [true, {"singleline": "never", "multiline": "always"}],
     "function-name": [true, {"static-method-regex": "^(\\[\")?[a-z][\\w\\d]+(\"\\])?$"}],

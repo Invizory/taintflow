@@ -2,12 +2,12 @@ export class Flow<T> {
     private readonly value: T;
     private isTaintedValue: boolean;
 
-    public static ["of"]<T>(flow: Flow<T>): Flow<T>;
+    public static ["of"]<T>(watchable: Watchable<T>): Flow<T>;
     public static ["of"]<T>(value: T): Flow<T>;
 
-    public static ["of"]<T>(value: Flow<T> | T) {
-        if (value instanceof this) {
-            return value;
+    public static ["of"]<T>(value: Watchable<T> | T) {
+        if (value instanceof Watchable) {
+            return value.flow;
         }
         return new Flow(value);
     }
@@ -34,9 +34,21 @@ export class Flow<T> {
         return this.value;
     }
 
+    public alter<V>(value: V) {
+        return new Flow(value, this.isTainted);
+    }
+
     public get watch(): T {
-        // We're tricking the type system at this point.
+        // We're intentionally tricking the type system at this point.
         // tslint:disable-next-line: no-any
-        return <any> this;
+        return <any> new Watchable(this);
+    }
+}
+
+export class Watchable<T> {
+    public readonly flow: Flow<T>;
+
+    constructor(flow: Flow<T>) {
+        this.flow = flow;
     }
 }
