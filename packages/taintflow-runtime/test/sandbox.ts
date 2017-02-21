@@ -6,12 +6,13 @@ import * as runtime from "../src";
 export type Primitive = boolean | number | string | symbol | void;
 
 export function run<T extends Primitive>(func: () => T, context?: {}): T {
-    const {code} = taintflowed(`(${func.toString()})()`);
+    const {code} = taintflowed(`const run = (${func.toString()});`);
     if (!code) {
         throw new Error("BabelFileResult.code is undefined.");
     }
-    return new vm.Script(code).runInNewContext({
-        "taintflow_runtime_1": runtime,
+    const runnerCode = code + "taintflow.Flow.of(run()).release";
+    return new vm.Script(runnerCode).runInNewContext({
+        "src_1": runtime,
         taintflow: runtime,
         ...context,
     });
