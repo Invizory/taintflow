@@ -12,11 +12,13 @@
   },
   "main": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
+  "browser": "dist/src/browser.js",
   "files": [
     "dist/src"
   ],
   "scripts": {
-    "prepublish": "rm -rf dist && tsc"
+    "prepublish": "rm -rf dist && tsc && npm run browserify",
+    "browserify": "browserify --debug --standalone taintflow -p [tsify] src/index.ts > dist/src/browser.js"
   },
   "dependencies": {
     "@types/lodash": "^4.14.52",
@@ -26,7 +28,9 @@
   },
   "devDependencies": {
     "@types/node": "^7.0.5",
-    "typescript": "^2.2.0",
-    "babel-plugin-transform-taintflow": "^0.0.0"
+    "babel-plugin-transform-taintflow": "^0.0.0",
+    "browserify": "^14.1.0",
+    "tsify": "^3.0.1",
+    "typescript": "^2.2.0"
   }
 }
