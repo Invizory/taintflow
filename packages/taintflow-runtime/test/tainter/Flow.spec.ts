@@ -42,6 +42,12 @@ describe("Flow", () => {
             }).should.be.true;
         });
 
+        it("should propagate after the method call", () => {
+            run(() => {
+                return Flow.of(Flow.tainted("a#b").split("#")).isTainted;
+            }).should.be.true;
+        });
+
         it("should propagate to called function as an argument", () => {
             run(() => {
                 const isFlowedInto = <T>(x: T) => Flow.of(x).isTainted;

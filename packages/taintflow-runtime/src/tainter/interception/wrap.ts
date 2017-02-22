@@ -23,14 +23,16 @@ export function wrap<T>(evaluated: EvaluatedExpression<T>, wrapper: Wrapper<T>):
 }
 
 class WrappedPropertyReference<Base, T> extends PropertyReference<Base, T> {
+    private readonly origin: PropertyReference<Base, T>;
     private readonly wrapper: Wrapper<T>;
 
     constructor(origin: PropertyReference<Base, T>, wrapper: Wrapper<T>) {
         super(origin.base, origin.propertyKey);
+        this.origin = origin;
         this.wrapper = wrapper;
     }
 
     public get value() {
-        return this.wrapper(super.value);
+        return this.wrapper(this.origin.value);
     }
 }
