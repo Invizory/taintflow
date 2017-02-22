@@ -13,6 +13,37 @@ TaintFlow performs prior source code instrumentation which allows you to:
 * Improve your debugging experience since TaintFlow can observe any data flow
 in code and intercept it.
 
+## Command Line Interface
+
+### Install
+
+To run TaintFlow [Transformer] command line interface, you must have [Node.js]
+with `npm` installed.
+
+```bash
+npm install -g taintflow-cli
+```
+
+[Node.js]: https://nodejs.org/
+
+### Usage
+
+Transform `script.js` with source code instrumentation and output to stdout:
+
+```bash
+taintflow script.js
+```
+
+If you would like to transform the entire `src` directory and output it to the
+`out` directory you may use `-d`:
+
+```bash
+taintflow src -d out
+```
+
+There are many more options available, see `taintflow --help` for more
+information.
+
 ## Components
 
 TaintFlow primarily consists of the following two components:
