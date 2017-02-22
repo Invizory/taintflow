@@ -9,7 +9,7 @@
 
 TaintFlow performs prior source code instrumentation which allows you to:
 
-* Find DOM XSS vulnerabilities with taint analysis.
+* Find DOM XSS vulnerabilities and unvalidated redirects with taint analysis.
 * Improve your debugging experience since TaintFlow can observe any data flow
 in code and intercept it.
 
@@ -55,9 +55,8 @@ In order to use TaintFlow features, you should firstly perform prior source code
 instrumentation with [Transformer] and then provide required [Runtime]
 dependency.
 
-However, these components used alone don't provide any useful features, since
-[Runtime] itself does nothing but provide extension point that can be used by
-another—maybe user-supplied—components which takes advantage of the source code
+[Runtime] also provides extension point that can be used by another—maybe
+user-supplied—components which takes advantage of the source code
 instrumentation.
 
 ## Transformer
@@ -87,23 +86,23 @@ environment.
 
 ## Runtime
 
-By default, the `intercept` function do nothing but evaluate intercepted
+By default, the `intercept` function does nothing but evaluate intercepted
 expressions in a standard way JavaScript behaves. However, it can be extended
 to provide custom non-standard behaviour.
 
 Example for brevity:
 
 ```javascript
-import {RValue, extend} from "taintflow-runtime";
+import * as taintflow from "taintflow-runtime";
 
-extend((description, intercept) => {
+taintflow.extend((intercept) => (node) => {
     // if we are calling some function from instrumented code,
     // then just return "ha-ha!" instead
-    if (description.type === "CallExpression") {
-        return new RValue("ha-ha!");
+    if (node.type === "CallExpression") {
+        return new taintflow.RValue("ha-ha!");
     }
     // otherwise, evaluate as usual
-    return intercept(description);
+    return intercept(node);
 });
 ```
 
@@ -111,15 +110,15 @@ Obviously, such extensions can be chained to provide some complex behaviour.
 
 ## Copyright
 
-Copyright © 2016 [Arthur Khashaev]. See [license] for details.
+Copyright © 2016–2017 [Arthur Khashaev]. See [license] for details.
 
 [Arthur Khashaev]: https://khashaev.ru
-[TaintFlow]: https://github.com/Invizory/taintflow
+[TaintFlow]: https://taintflow.org
 [license]: LICENSE.txt
 [Transformer]: #transformer
 [Runtime]: #runtime
 
-[taintflow-logo]: https://khashaev.ru/static/taintflow.svg
+[taintflow-logo]: https://taintflow.org/logo.svg
 [travis-image]: https://travis-ci.com/Invizory/taintflow.svg?token=WkVhXoQxLrMaL8YrwSfP&branch=master
 [travis-url]: https://travis-ci.com/Invizory/taintflow
 [license-image]: https://img.shields.io/badge/license-MIT-green.svg
