@@ -28,12 +28,17 @@ export class NodeInterceptor<T extends types.Node> {
 }
 
 namespace Templates {
-    export const interceptor =
+    export type Interceptor =
+        (nodes: {description: types.ObjectExpression}) =>
+        types.ExpressionStatement;
+
+    export const interceptor = <Interceptor>
         template("taintflow.intercept(description).value");
 }
 
 namespace Nodes {
     export function interceptor(description: NamedExpressions) {
-        return Templates.interceptor({description: astify(description)});
+        return Templates.interceptor({description: astify(description)})
+                        .expression;
     }
 }
