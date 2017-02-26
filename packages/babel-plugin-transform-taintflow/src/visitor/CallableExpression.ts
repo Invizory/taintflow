@@ -3,6 +3,7 @@ import {NodePath} from "babel-traverse";
 
 import {NodeInterceptor} from "../interception";
 import {quotedArrayOfExpressions} from "../interception/quoted";
+import {TranspilationError} from "../TranspilationError";
 import {NodePathInterceptor} from "./NodePathInterceptor";
 
 const interceptor = new NodePathInterceptor(
@@ -38,13 +39,4 @@ class CallableExpressionInterceptor
 
 function isExpressions(nodes: types.Node[]): nodes is types.Expression[] {
     return nodes.every(types.isExpression);
-}
-
-class TranspilationError extends Error {
-    public readonly name = "TranspilationError";
-
-    constructor(message: string) {
-        super(message + " " +
-              "Make sure you properly transpiled your source to ES5 before.");
-    }
 }
