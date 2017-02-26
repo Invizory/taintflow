@@ -19,7 +19,7 @@ program.outputHelp = function (this: typeof program, ...args: {}[]) {
 
 program
     .version(pkg.version)
-    .usage("[options] <file ...>")
+    .usage("[options] [<file>...]")
     .option("-o, --out-file [out]",
             "transform all input files into a single file")
     .option("-d, --out-dir [out]",
@@ -29,10 +29,6 @@ program
     .option("-q, --quiet",
             "don't log anything")
     .parse(process.argv);
-
-if (!program.args.length) {
-    program.help();
-}
 
 process.argv.splice(
     2, 0,
