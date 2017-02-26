@@ -7,3 +7,4 @@ import {plugin} from "./plugin";
 export default plugin;
 
 export {taintflowed} from "./taintflowed";
+export {isTransformed} from "./isTransformed";
