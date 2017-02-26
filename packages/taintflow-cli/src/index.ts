@@ -30,10 +30,6 @@ program
             "don't log anything")
     .parse(process.argv);
 
-if (!program.args.length) {
-    program.help();
-}
-
 process.argv.splice(
     2, 0,
     "--plugins", require.resolve("babel-plugin-transform-taintflow"),
