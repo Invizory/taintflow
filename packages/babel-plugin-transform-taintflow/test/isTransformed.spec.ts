@@ -11,6 +11,6 @@ describe("isTransformed", () => {
     });
 
     it("should be `true` on transformed code", () => {
-        isTransformed(<string> taintflowed(code).code).should.be.true;
+        isTransformed(taintflowed(code).code).should.be.true;
     });
 });
