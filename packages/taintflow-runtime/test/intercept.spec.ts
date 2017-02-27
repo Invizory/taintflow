@@ -111,4 +111,12 @@ describe("intercept", () => {
             });
         });
     });
+
+    context("when NewExpression", () => {
+        context("like `new Error(\"message\")`", () => {
+            it("should set own properties", () => {
+                run(() => new Error("message").message).should.equal("message");
+            });
+        });
+    });
 });
