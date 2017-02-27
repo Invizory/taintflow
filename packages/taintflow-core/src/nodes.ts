@@ -14,7 +14,9 @@ export interface MemberExpression<Object, Property extends PropertyKey> {
     readonly property: QuotedExpression<Property>;
 }
 
-export interface CallExpression {
+export type CallExpression = CallableExpression;
+
+export interface CallableExpression {
     readonly callee: QuotedExpression<Function>;
     readonly arguments: QuotedArgumentsExpression;
 }
