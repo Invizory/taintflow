@@ -5,6 +5,7 @@ import {Mixed, QuotedArgumentsExpression, QuotedExpression} from "./taxonomy";
 export type Node
     = {["type"]: "MemberExpression"} & MemberExpression<Mixed, PropertyKey>
     | {["type"]: "CallExpression"} & CallExpression
+    | {["type"]: "NewExpression"} & NewExpression
     | {["type"]: "UnaryExpression"} & UnaryExpression<Mixed>
     | {["type"]: "BinaryExpression"} & BinaryExpression<Mixed, Mixed>
     | {["type"]: "LogicalExpression"} & LogicalExpression<Mixed, Mixed>;
@@ -15,6 +16,8 @@ export interface MemberExpression<Object, Property extends PropertyKey> {
 }
 
 export type CallExpression = CallableExpression;
+
+export type NewExpression = CallableExpression;
 
 export interface CallableExpression {
     readonly callee: QuotedExpression<Function>;
