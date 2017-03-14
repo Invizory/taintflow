@@ -3,4 +3,5 @@ node_js:
   - node
 script:
   - npm run lint
-  - npm run test:coverage
+  - npm test
+  - npm run coverage

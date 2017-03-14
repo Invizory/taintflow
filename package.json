@@ -19,8 +19,8 @@
     "postinstall": "lerna bootstrap",
     "prepublish": "lerna exec -- npm run prepublish",
     "pretest": "npm run prepublish > /dev/null",
-    "test": "mocha 'packages/*/dist/test/**/*.spec.js'",
-    "test:coverage": "nyc npm test",
+    "test": "nyc mocha 'packages/*/dist/test/**/*.spec.js'",
+    "coverage": "nyc report --reporter=json && codecov -t 55f14f73-451a-428f-99ae-239412257cc0 -f coverage/*.json",
     "lint": "tslint 'packages/*/src/**/*.ts' 'packages/*/test/**/*.ts'"
   },
   "devDependencies": {
@@ -33,6 +33,7 @@
     "babel-generator": "^6.21.0",
     "babel-preset-latest": "^6.16.0",
     "chai": "^4.0.0-canary.1",
+    "codecov": "^1.0.1",
     "lerna": "2.0.0-beta.37",
     "mocha": "^3.0.2",
     "nyc": "^10.1.2",
