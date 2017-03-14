@@ -10,6 +10,15 @@ export type Node
     | {["type"]: "BinaryExpression"} & BinaryExpression<Mixed, Mixed>
     | {["type"]: "LogicalExpression"} & LogicalExpression<Mixed, Mixed>;
 
+export type NodeProperty
+    = keyof Node
+    | keyof MemberExpression<Mixed, PropertyKey>
+    | keyof CallExpression
+    | keyof NewExpression
+    | keyof UnaryExpression<Mixed>
+    | keyof BinaryExpression<Mixed, Mixed>
+    | keyof LogicalExpression<Mixed, Mixed>;
+
 export interface MemberExpression<Object, Property extends PropertyKey> {
     readonly object: QuotedExpression<Object>;
     readonly property: QuotedExpression<Property>;

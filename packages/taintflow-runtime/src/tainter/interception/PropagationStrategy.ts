@@ -14,7 +14,7 @@ export class PropagationStrategy {
 
     public attach(node: nodes.Node) {
         return <nodes.Node> _(node)
-            .mapValues((x) => this.attachValue(x))
+            .mapValues(this.attachIfQuoted.bind(this))
             .value();
     }
 
@@ -26,16 +26,18 @@ export class PropagationStrategy {
         return wrap(result, (value) => flow.alter(value).watch);
     }
 
-    private attachValue(value: Mixed) {
-        return isQuotedExpression(value) ? this.attachQuoted(value) : value;
+    private attachIfQuoted(value: Mixed, property: nodes.NodeProperty) {
+        if (!isQuotedExpression(value, property)) {
+            return value;
+        }
+        return this.attachQuoted(value);
     }
 
     private attachQuoted<T>(quoted: QuotedExpression<T>) {
         return () => this.propagated(quoted());
     }
 
-    private propagated<T>(evaluated: EvaluatedExpression<T>):
-            EvaluatedExpression<T> {
+    private propagated<T>(evaluated: EvaluatedExpression<T>): typeof evaluated {
         return wrap(evaluated, (value) => this.onUnquote(value));
     }
 
@@ -48,6 +50,7 @@ export class PropagationStrategy {
     }
 }
 
-function isQuotedExpression(value: Mixed): value is QuotedExpression<Mixed> {
-    return _.isFunction(value);
+function isQuotedExpression<T>(value: Mixed, property: nodes.NodeProperty):
+         value is QuotedExpression<T> {
+    return _.isFunction(value) && property !== "arguments";
 }
