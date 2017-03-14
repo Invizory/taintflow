@@ -1,6 +1,7 @@
 # [![TaintFlow][taintflow-logo]][TaintFlow]
 
 [![Build status][travis-image]][travis-url]
+[![Coverage][coverage-image]][coverage-url]
 [![License][license-image]][license]
 
 **TaintFlow**, a framework for JavaScript dynamic information flow analysis.
@@ -122,3 +123,5 @@ Copyright © 2016–2017 [Arthur Khashaev]. See [license] for details.
 [travis-image]: https://travis-ci.com/Invizory/taintflow.svg?token=WkVhXoQxLrMaL8YrwSfP&branch=master
 [travis-url]: https://travis-ci.com/Invizory/taintflow
 [license-image]: https://img.shields.io/badge/license-MIT-green.svg
+[coverage-image]: https://codecov.io/gh/Invizory/taintflow/branch/master/graph/badge.svg?token=4tjFZ3dqMH
+[coverage-url]: https://codecov.io/gh/Invizory/taintflow
