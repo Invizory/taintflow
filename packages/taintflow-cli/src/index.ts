@@ -35,6 +35,7 @@ process.argv.splice(
     "--plugins", require.resolve("babel-plugin-transform-taintflow"),
     "--no-babelrc",
     "--source-maps", "inline",
+    "--source-type", "script",
     "--copy-files",
 );
 
