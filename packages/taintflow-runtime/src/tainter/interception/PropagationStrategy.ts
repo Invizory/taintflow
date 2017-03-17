@@ -6,19 +6,23 @@ import {
     QuotedExpression,
 } from "taintflow-core";
 
+import {reflection} from "../../reflection";
 import {Flow, Watchable} from "../Flow";
 import {wrap} from "./wrap";
 
 export class PropagationStrategy {
     private flow?: Flow<Mixed>;
+    private shouldReleaseArguments?: boolean;
 
-    public attach(node: nodes.Node) {
-        return <nodes.Node> _(node)
-            .mapValues((x) => this.attachValue(x))
-            .value();
+    public attach(node: nodes.Node): typeof node {
+        const attached = this.attachGeneric(node);
+        if (!nodes.isCallable(attached)) {
+            return attached;
+        }
+        return this.attachCallable(attached);
     }
 
-    public propagate<T>(result: EvaluatedExpression<T>) {
+    public propagate<T>(result: EvaluatedExpression<T>): typeof result {
         const {flow} = this;
         if (!flow) {
             return result;
@@ -26,20 +30,58 @@ export class PropagationStrategy {
         return wrap(result, (value) => flow.alter(value).watch);
     }
 
-    private attachValue(value: Mixed) {
-        return isQuotedExpression(value) ? this.attachQuoted(value) : value;
+    private attachGeneric(node: nodes.Node): typeof node {
+        return <nodes.Node> _(node)
+            .mapValues(this.attachIfQuoted.bind(this))
+            .value();
+    }
+
+    private attachCallable(node: nodes.CallableNode): typeof node {
+        return {
+            ...node,
+            callee: () => this.attachCallee(node.callee()),
+            arguments: () => this.attachArguments(node.arguments()),
+        };
+    }
+
+    private attachCallee(callee: EvaluatedExpression<Function>) {
+        return wrap(callee, (func) => {
+            this.shouldReleaseArguments = !reflection.isInstrumented(func);
+            return func;
+        });
+    }
+
+    private attachArguments(args: ReadonlyArray<EvaluatedExpression<Mixed>>) {
+        return args.map((evaluated) => this.attachArgument(evaluated));
+    }
+
+    private attachArgument<T>(argument: EvaluatedExpression<T>) {
+        return wrap(argument, (value) => {
+            if (_.isUndefined(this.shouldReleaseArguments)) {
+                throw new Error(
+                    '"callee" should be unquoted before "arguments".',
+                );
+            }
+            return this.shouldReleaseArguments ? this.release(value) : value;
+        });
+    }
+
+    private attachIfQuoted(value: Mixed, property: nodes.NodeProperty) {
+        if (!isQuotedExpression(value, property)) {
+            return value;
+        }
+        return this.attachQuoted(value);
     }
 
     private attachQuoted<T>(quoted: QuotedExpression<T>) {
-        return () => this.propagated(quoted());
+        return () => this.attachEvaluated(quoted());
     }
 
-    private propagated<T>(evaluated: EvaluatedExpression<T>):
-            EvaluatedExpression<T> {
-        return wrap(evaluated, (value) => this.onUnquote(value));
+    private attachEvaluated<T>(evaluated: EvaluatedExpression<T>) {
+        return wrap(evaluated, (value) => this.release(value));
     }
 
-    private onUnquote<T>(value: Watchable<T> | T) {
+    private release<T>(value: Watchable<T> | T) {
         if (value instanceof Watchable) {
             this.flow = value.flow;
             return value.flow.release;
@@ -48,6 +90,7 @@ export class PropagationStrategy {
     }
 }
 
-function isQuotedExpression(value: Mixed): value is QuotedExpression<Mixed> {
-    return _.isFunction(value);
+function isQuotedExpression<T>(value: Mixed, property: nodes.NodeProperty):
+         value is QuotedExpression<T> {
+    return _.isFunction(value) && property !== "arguments";
 }

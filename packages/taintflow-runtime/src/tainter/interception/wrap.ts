@@ -9,7 +9,7 @@ import {
 export type Wrapper<T> = (value: T) => T;
 
 export function wrap<T>(evaluated: EvaluatedExpression<T>, wrapper: Wrapper<T>):
-                EvaluatedExpression<T> {
+                typeof evaluated {
     switch (evaluated.kind) {
         case ValueKind.RValue:
             return new RValue(wrapper(evaluated.value));
@@ -18,7 +18,7 @@ export function wrap<T>(evaluated: EvaluatedExpression<T>, wrapper: Wrapper<T>):
         case ValueKind.PropertyReference:
             return new WrappedPropertyReference(evaluated, wrapper);
         default:
-            return evaluated;
+            throw new Error("Invalid kind of EvaluatedExpression.");
     }
 }
 
