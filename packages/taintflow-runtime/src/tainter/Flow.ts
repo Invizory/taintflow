@@ -2,8 +2,10 @@ export class Flow<T> {
     private readonly value: T;
     private isTaintedValue: boolean;
 
-    public static ["of"]<T>(watchable: Watchable<T>): Flow<T>;
-    public static ["of"]<T>(value: T): Flow<T>;
+    private constructor(value: T, isTainted: boolean = false) {
+        this.value = value;
+        this.isTaintedValue = isTainted;
+    }
 
     public static ["of"]<T>(value: Watchable<T> | T) {
         if (value instanceof Watchable) {
@@ -14,11 +16,6 @@ export class Flow<T> {
 
     public static tainted<T>(value: T) {
         return Flow.of(value).taint.watch;
-    }
-
-    private constructor(value: T, isTainted: boolean = false) {
-        this.value = value;
-        this.isTaintedValue = isTainted;
     }
 
     public get isTainted() {
