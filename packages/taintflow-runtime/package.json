@@ -23,7 +23,7 @@
   "dependencies": {
     "@types/lodash": "^4.14.52",
     "lodash": "^4.17.4",
-    "taintflow-core": "^0.0.0",
+    "taintflow-types": "^0.0.0",
     "taintflow-simulator": "^0.0.0"
   },
   "devDependencies": {

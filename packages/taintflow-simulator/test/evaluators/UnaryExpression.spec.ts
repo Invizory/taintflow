@@ -1,6 +1,6 @@
 import {expect} from "chai";
 import "mocha";
-import {RValue} from "taintflow-core";
+import {RValue} from "taintflow-types";
 
 import {evaluators} from "../../src";
 

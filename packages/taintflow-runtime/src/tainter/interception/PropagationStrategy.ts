@@ -4,7 +4,7 @@ import {
     Mixed,
     nodes,
     QuotedExpression,
-} from "taintflow-core";
+} from "taintflow-types";
 
 import {reflection} from "../../reflection";
 import {Flow, Watchable} from "../Flow";

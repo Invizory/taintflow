@@ -20,7 +20,7 @@
     "prepublish": "rm -rf dist && tsc"
   },
   "devDependencies": {
-    "taintflow-core": "^0.0.0",
+    "taintflow-types": "^0.0.0",
     "typescript": "^2.2.0"
   },
   "dependencies": {

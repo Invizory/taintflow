@@ -1,6 +1,6 @@
 import "chai/should";
 import "mocha";
-import {Identifier, PropertyReference, RValue} from "taintflow-core";
+import {Identifier, PropertyReference, RValue} from "taintflow-types";
 
 import {evaluators} from "../../src";
 

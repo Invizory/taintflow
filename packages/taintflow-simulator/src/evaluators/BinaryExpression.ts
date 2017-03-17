@@ -1,4 +1,4 @@
-import {nodes, QuotedExpression, RValue} from "taintflow-core";
+import {nodes, QuotedExpression, RValue} from "taintflow-types";
 
 import {EvaluatingNode} from "./EvaluatingNode";
 import {BinaryOperatorResult, binaryOperators} from "./operators/binary";

@@ -1,12 +1,12 @@
 {
-  "name": "taintflow-core",
+  "name": "taintflow-types",
   "version": "0.0.0",
-  "description": "TaintFlow core.",
+  "description": "TaintFlow types.",
   "author": "Arthur Khashaev <arthur@khashaev.ru>",
   "license": "MIT",
   "homepage": "https://taintflow.org",
   "bugs": "https://github.com/Invizory/taintflow/issues",
-  "repository": "https://github.com/Invizory/taintflow/tree/master/packages/taintflow-core",
+  "repository": "https://github.com/Invizory/taintflow/tree/master/packages/taintflow-types",
   "keywords": [
     "taintflow"
   ],

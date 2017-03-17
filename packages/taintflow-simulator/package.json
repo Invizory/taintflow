@@ -22,7 +22,7 @@
     "typescript": "^2.2.0"
   },
   "dependencies": {
-    "taintflow-core": "^0.0.0",
+    "taintflow-types": "^0.0.0",
     "@types/lodash": "^4.14.52",
     "lodash": "^4.17.4"
   }

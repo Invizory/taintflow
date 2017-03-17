@@ -3,7 +3,7 @@ import {
     nodes,
     PropertyReference,
     QuotedExpression,
-} from "taintflow-core";
+} from "taintflow-types";
 
 import {EvaluatingNode} from "./EvaluatingNode";
 

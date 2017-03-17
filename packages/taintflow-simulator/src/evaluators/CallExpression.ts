@@ -6,7 +6,7 @@ import {
     QuotedExpression,
     RValue,
     ValueKind,
-} from "taintflow-core";
+} from "taintflow-types";
 
 import {EvaluatingNode} from "./EvaluatingNode";
 
