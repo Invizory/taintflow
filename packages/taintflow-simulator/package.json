@@ -16,7 +16,7 @@
     "dist/src"
   ],
   "scripts": {
-    "prepublish": "rm -rf dist && tsc"
+    "prepare": "rm -rf dist && tsc"
   },
   "devDependencies": {
     "typescript": "^2.2.0"

@@ -17,7 +17,7 @@
     "dist/src"
   ],
   "scripts": {
-    "prepublish": "rm -rf dist && tsc"
+    "prepare": "rm -rf dist && tsc"
   },
   "devDependencies": {
     "taintflow-types": "^0.0.0",
