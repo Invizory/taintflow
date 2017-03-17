@@ -3,26 +3,29 @@ import * as types from "babel-types";
 import {Mixed, QuotedArgumentsExpression, QuotedExpression} from "./taxonomy";
 
 export type Node
-    = {["type"]: "MemberExpression"} & MemberExpression<Mixed, PropertyKey>
-    | {["type"]: "CallExpression"} & CallExpression
-    | {["type"]: "NewExpression"} & NewExpression
+    = CallableNode
+    | {["type"]: "MemberExpression"} & MemberExpression<Mixed, PropertyKey>
     | {["type"]: "UnaryExpression"} & UnaryExpression<Mixed>
     | {["type"]: "BinaryExpression"} & BinaryExpression<Mixed, Mixed>
     | {["type"]: "LogicalExpression"} & LogicalExpression<Mixed, Mixed>;
 
+export type CallableNode
+    = {["type"]: "CallExpression"} & CallExpression
+    | {["type"]: "NewExpression"} & NewExpression;
+
+export function isCallable(node: Node): node is CallableNode {
+    return node.type === "CallExpression" ||
+           node.type === "NewExpression";
+}
+
 export type NodeProperty
     = keyof Node
-    | keyof MemberExpression<Mixed, PropertyKey>
     | keyof CallExpression
     | keyof NewExpression
+    | keyof MemberExpression<Mixed, PropertyKey>
     | keyof UnaryExpression<Mixed>
     | keyof BinaryExpression<Mixed, Mixed>
     | keyof LogicalExpression<Mixed, Mixed>;
-
-export interface MemberExpression<Object, Property extends PropertyKey> {
-    readonly object: QuotedExpression<Object>;
-    readonly property: QuotedExpression<Property>;
-}
 
 export type CallExpression = CallableExpression;
 
@@ -31,6 +34,11 @@ export type NewExpression = CallableExpression;
 export interface CallableExpression {
     readonly callee: QuotedExpression<Function>;
     readonly arguments: QuotedArgumentsExpression;
+}
+
+export interface MemberExpression<Object, Property extends PropertyKey> {
+    readonly object: QuotedExpression<Object>;
+    readonly property: QuotedExpression<Property>;
 }
 
 export interface UnaryExpression<Argument> {

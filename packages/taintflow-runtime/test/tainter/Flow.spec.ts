@@ -56,6 +56,12 @@ describe("Flow", () => {
         });
     });
 
+    context("tainted value interacting with native API", () => {
+        it("should pass to native function as an argument", () => {
+            run(() => parseInt(Flow.tainted("1"), 10)).should.equal(1);
+        });
+    });
+
     it("should propagate when getting property by tainted name", () => {
         run(() => {
             const method = {}[Flow.tainted("toString")];
