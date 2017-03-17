@@ -4,13 +4,11 @@
   "description": "Babel plugin for TaintFlow source code instrumentation.",
   "author": "Arthur Khashaev <arthur@khashaev.ru>",
   "license": "MIT",
-  "homepage": "https://github.com/Invizory/taintflow",
+  "homepage": "https://taintflow.org",
   "bugs": "https://github.com/Invizory/taintflow/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Invizory/taintflow.git"
-  },
+  "repository": "https://github.com/Invizory/taintflow/tree/master/packages/babel-plugin-transform-taintflow",
   "keywords": [
+    "taintflow",
     "babel-plugin"
   ],
   "main": "dist/src/index.js",

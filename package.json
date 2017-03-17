@@ -5,12 +5,9 @@
   "author": "Arthur Khashaev <arthur@khashaev.ru>",
   "license": "MIT",
   "private": true,
-  "homepage": "https://github.com/Invizory/taintflow",
+  "homepage": "https://taintflow.org",
   "bugs": "https://github.com/Invizory/taintflow/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Invizory/taintflow.git"
-  },
+  "repository": "https://github.com/Invizory/taintflow",
   "engines": {
     "node": ">=7.0.0"
   },

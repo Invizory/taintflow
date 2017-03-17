@@ -4,12 +4,12 @@
   "description": "TaintFlow runtime.",
   "author": "Arthur Khashaev <arthur@khashaev.ru>",
   "license": "MIT",
-  "homepage": "https://github.com/Invizory/taintflow",
+  "homepage": "https://taintflow.org",
   "bugs": "https://github.com/Invizory/taintflow/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Invizory/taintflow.git"
-  },
+  "repository": "https://github.com/Invizory/taintflow/tree/master/packages/taintflow-runtime",
+  "keywords": [
+    "taintflow"
+  ],
   "main": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
   "browser": "dist/src/browser.js",
