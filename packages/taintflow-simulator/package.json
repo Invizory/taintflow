@@ -4,25 +4,25 @@
   "description": "TaintFlow simulator.",
   "author": "Arthur Khashaev <arthur@khashaev.ru>",
   "license": "MIT",
-  "homepage": "https://github.com/Invizory/taintflow",
+  "homepage": "https://taintflow.org",
   "bugs": "https://github.com/Invizory/taintflow/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Invizory/taintflow.git"
-  },
+  "repository": "https://github.com/Invizory/taintflow/tree/master/packages/taintflow-simulator",
+  "keywords": [
+    "taintflow"
+  ],
   "main": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
   "files": [
     "dist/src"
   ],
   "scripts": {
-    "prepublish": "rm -rf dist && tsc"
+    "prepare": "rm -rf dist && tsc"
   },
   "devDependencies": {
     "typescript": "^2.2.0"
   },
   "dependencies": {
-    "taintflow-core": "^0.0.0",
+    "taintflow-types": "^0.0.0",
     "@types/lodash": "^4.14.52",
     "lodash": "^4.17.4"
   }

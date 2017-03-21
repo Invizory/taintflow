@@ -1,6 +1,6 @@
 import "chai";
 import "mocha";
-import {Runtime} from "taintflow-core";
+import {Runtime} from "taintflow-types";
 
 import {original, transformed} from "../return-expression";
 

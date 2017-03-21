@@ -1,5 +1,5 @@
 import {UNARY_OPERATORS} from "babel-types";
-import {Mixed, QuotedExpression, ValueKind} from "taintflow-core";
+import {Mixed, QuotedExpression, ValueKind} from "taintflow-types";
 
 import {compile, Operators} from "./compilation";
 

@@ -1,4 +1,4 @@
-import {EvaluatedExpression} from "taintflow-core";
+import {EvaluatedExpression} from "taintflow-types";
 
 export interface EvaluatingNode<Value> {
     readonly kind: string;

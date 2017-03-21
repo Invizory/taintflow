@@ -4,12 +4,12 @@
   "description": "TaintFlow command line interface.",
   "author": "Arthur Khashaev <arthur@khashaev.ru>",
   "license": "MIT",
-  "homepage": "https://github.com/Invizory/taintflow",
+  "homepage": "https://taintflow.org",
   "bugs": "https://github.com/Invizory/taintflow/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Invizory/taintflow.git"
-  },
+  "repository": "https://github.com/Invizory/taintflow/tree/master/packages/taintflow-cli",
+  "keywords": [
+    "taintflow"
+  ],
   "preferGlobal": true,
   "bin": {
     "taintflow": "dist/index.js"
@@ -18,7 +18,7 @@
     "dist/index.js"
   ],
   "scripts": {
-    "prepublish": "rm -rf dist && tsc"
+    "prepare": "rm -rf dist && tsc"
   },
   "dependencies": {
     "@types/chalk": "^0.4.31",

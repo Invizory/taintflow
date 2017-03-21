@@ -4,12 +4,12 @@
   "description": "TaintFlow runtime.",
   "author": "Arthur Khashaev <arthur@khashaev.ru>",
   "license": "MIT",
-  "homepage": "https://github.com/Invizory/taintflow",
+  "homepage": "https://taintflow.org",
   "bugs": "https://github.com/Invizory/taintflow/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Invizory/taintflow.git"
-  },
+  "repository": "https://github.com/Invizory/taintflow/tree/master/packages/taintflow-runtime",
+  "keywords": [
+    "taintflow"
+  ],
   "main": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
   "browser": "dist/src/browser.js",
@@ -17,13 +17,13 @@
     "dist/src"
   ],
   "scripts": {
-    "prepublish": "rm -rf dist && tsc && npm run browserify",
+    "prepare": "rm -rf dist && tsc && npm run browserify",
     "browserify": "browserify --debug --standalone taintflow -p [tsify] src/index.ts > dist/src/browser.js"
   },
   "dependencies": {
     "@types/lodash": "^4.14.52",
     "lodash": "^4.17.4",
-    "taintflow-core": "^0.0.0",
+    "taintflow-types": "^0.0.0",
     "taintflow-simulator": "^0.0.0"
   },
   "devDependencies": {

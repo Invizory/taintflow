@@ -4,14 +4,16 @@ import {Mixed, QuotedArgumentsExpression, QuotedExpression} from "./taxonomy";
 
 export type Node
     = CallableNode
-    | {["type"]: "MemberExpression"} & MemberExpression<Mixed, PropertyKey>
-    | {["type"]: "UnaryExpression"} & UnaryExpression<Mixed>
-    | {["type"]: "BinaryExpression"} & BinaryExpression<Mixed, Mixed>
-    | {["type"]: "LogicalExpression"} & LogicalExpression<Mixed, Mixed>;
+    | {readonly ["type"]: "MemberExpression"} & MemberExpression<Mixed,
+                                                                 PropertyKey>
+    | {readonly ["type"]: "UnaryExpression"} & UnaryExpression<Mixed>
+    | {readonly ["type"]: "BinaryExpression"} & BinaryExpression<Mixed, Mixed>
+    | {readonly ["type"]: "LogicalExpression"} & LogicalExpression<Mixed,
+                                                                   Mixed>;
 
 export type CallableNode
-    = {["type"]: "CallExpression"} & CallExpression
-    | {["type"]: "NewExpression"} & NewExpression;
+    = {readonly ["type"]: "CallExpression"} & CallExpression
+    | {readonly ["type"]: "NewExpression"} & NewExpression;
 
 export function isCallable(node: Node): node is CallableNode {
     return node.type === "CallExpression" ||

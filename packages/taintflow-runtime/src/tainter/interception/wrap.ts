@@ -4,7 +4,7 @@ import {
     PropertyReference,
     RValue,
     ValueKind,
-} from "taintflow-core";
+} from "taintflow-types";
 
 export type Wrapper<T> = (value: T) => T;
 

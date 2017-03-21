@@ -1,5 +1,5 @@
-import {EvaluatedExpression, Mixed, nodes} from "taintflow-core";
 import {intercept as simulate} from "taintflow-simulator";
+import {EvaluatedExpression, Mixed, nodes} from "taintflow-types";
 
 import {PropagationStrategy} from "./PropagationStrategy";
 

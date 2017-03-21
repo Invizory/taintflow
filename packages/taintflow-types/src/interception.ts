@@ -4,4 +4,4 @@ import * as taxonomy from "./taxonomy";
 
 export type Interceptor = (node: Node) => EvaluatedExpression<Mixed>;
 
-export type Runtime = {intercept: Interceptor} & typeof taxonomy;
+export type Runtime = {readonly intercept: Interceptor} & typeof taxonomy;

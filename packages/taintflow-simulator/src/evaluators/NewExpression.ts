@@ -4,7 +4,7 @@ import {
     QuotedArgumentsExpression,
     QuotedExpression,
     RValue,
-} from "taintflow-core";
+} from "taintflow-types";
 
 import {EvaluatingNode} from "./EvaluatingNode";
 

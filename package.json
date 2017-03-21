@@ -5,20 +5,17 @@
   "author": "Arthur Khashaev <arthur@khashaev.ru>",
   "license": "MIT",
   "private": true,
-  "homepage": "https://github.com/Invizory/taintflow",
+  "homepage": "https://taintflow.org",
   "bugs": "https://github.com/Invizory/taintflow/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Invizory/taintflow.git"
-  },
+  "repository": "https://github.com/Invizory/taintflow",
   "engines": {
-    "node": ">=7.0.0"
+    "node": ">= 7.0.0"
   },
   "scripts": {
-    "watch": "npm run prepublish && lerna exec -- tsc --watch",
+    "watch": "npm run prepare && lerna exec -- tsc --watch",
     "postinstall": "lerna bootstrap",
-    "prepublish": "lerna exec -- npm run prepublish",
-    "pretest": "npm run prepublish > /dev/null",
+    "prepare": "lerna exec -- npm run prepare",
+    "pretest": "npm run prepare > /dev/null",
     "test": "nyc mocha 'packages/*/dist/test/**/*.spec.js'",
     "coverage": "nyc report --reporter=json && codecov -t 55f14f73-451a-428f-99ae-239412257cc0 -f coverage/*.json",
     "lint": "tslint 'packages/*/src/**/*.ts' 'packages/*/test/**/*.ts'"
