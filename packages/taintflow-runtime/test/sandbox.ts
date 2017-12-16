@@ -10,9 +10,9 @@ export function run<T extends Primitive>(func: () => T, context?: {}): T {
     if (!code) {
         throw new Error("BabelFileResult.code is undefined.");
     }
-    const runnerCode = code + "taintflow.Flow.of(run()).release";
+    const runnerCode = `${code} taintflow.Flow.of(run()).release`;
     return new vm.Script(runnerCode).runInNewContext({
-        "src_1": runtime,
+        src_1: runtime,
         taintflow: runtime,
         ...context,
     });

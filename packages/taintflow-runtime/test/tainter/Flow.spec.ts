@@ -1,8 +1,10 @@
-import "chai";
+import {should} from "chai";
 import "mocha";
 
 import {Flow} from "../../src";
 import {run} from "../sandbox";
+
+should();
 
 describe("Flow", () => {
     context("ordinary string", () => {
@@ -33,6 +35,7 @@ describe("Flow", () => {
         });
 
         it("should propagate after concatenation", () => {
+            // tslint:disable-next-line: prefer-template
             run(() => Flow.of(Flow.tainted("") + "").isTainted).should.be.true;
         });
 

@@ -1,7 +1,9 @@
-import "chai";
+import {should} from "chai";
 import "mocha";
 
 import {run} from "./sandbox";
+
+should();
 
 describe("intercept", () => {
     context("when BinaryExpression", () => {

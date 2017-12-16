@@ -1,10 +1,12 @@
-import "chai";
+import {should} from "chai";
 import "mocha";
 import {Runtime} from "taintflow-types";
 
 import {original, transformed} from "../return-expression";
 
 declare const taintflow: Runtime;
+
+should();
 
 describe("UnaryExpression transformer", () => {
     it("should transform `typeof Function`", () => {

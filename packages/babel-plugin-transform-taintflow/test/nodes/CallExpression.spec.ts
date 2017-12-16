@@ -1,4 +1,4 @@
-import "chai";
+import {should} from "chai";
 import "mocha";
 import {EvaluatedExpression, Runtime} from "taintflow-types";
 
@@ -6,12 +6,15 @@ import {original, transformed} from "../return-expression";
 
 declare const taintflow: Runtime;
 
+should();
+
 describe("CallExpression transformer", () => {
     function foo(..._: {}[]) {
         return null;
     }
 
     it("should transform `foo()`", () => {
+        // tslint:disable-next-line: no-unnecessary-callback-wrapper
         const actual = transformed(() => foo());
         const expected = original(() => {
             return taintflow.intercept({
