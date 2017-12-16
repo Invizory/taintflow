@@ -1,8 +1,10 @@
-import "chai/should";
+import {should} from "chai";
 import "mocha";
 import {Identifier, PropertyReference, RValue} from "taintflow-types";
 
 import {evaluators} from "../../src";
+
+should();
 
 describe("evaluators.CallExpression", () => {
     context("like `id(\"x\")`", () => {

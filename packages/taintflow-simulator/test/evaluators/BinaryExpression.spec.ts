@@ -1,8 +1,10 @@
-import "chai/should";
+import {should} from "chai";
 import "mocha";
 import {RValue} from "taintflow-types";
 
 import {evaluators} from "../../src";
+
+should();
 
 describe("evaluators.BinaryExpression", () => {
     context("like `2 + 2`", () => {
