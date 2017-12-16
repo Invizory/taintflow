@@ -21,5 +21,6 @@ export const binaryOperators = <BinaryOperators> compile({
 });
 
 declare module "babel-types" {
+    // tslint:disable-next-line: no-shadowed-variable
     export const BINARY_OPERATORS: ReadonlyArray<string>;
 }

@@ -1,7 +1,9 @@
-import "chai";
+import {should} from "chai";
 import "mocha";
 
 import {isTransformed, taintflowed} from "../src";
+
+should();
 
 describe("isTransformed", () => {
     const code = "2 + 2";

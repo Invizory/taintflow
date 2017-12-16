@@ -1,7 +1,9 @@
-import "chai";
+import {should} from "chai";
 import "mocha";
 
 import {taintflowed} from "../src";
+
+should();
 
 describe("taintflowed", () => {
     it("should be idempotent", () => {

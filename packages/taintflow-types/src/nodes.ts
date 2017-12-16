@@ -4,12 +4,14 @@ import {Mixed, QuotedArgumentsExpression, QuotedExpression} from "./taxonomy";
 
 export type Node
     = CallableNode
-    | {readonly ["type"]: "MemberExpression"} & MemberExpression<Mixed,
-                                                                 PropertyKey>
-    | {readonly ["type"]: "UnaryExpression"} & UnaryExpression<Mixed>
-    | {readonly ["type"]: "BinaryExpression"} & BinaryExpression<Mixed, Mixed>
-    | {readonly ["type"]: "LogicalExpression"} & LogicalExpression<Mixed,
-                                                                   Mixed>;
+    | {readonly ["type"]: "MemberExpression"} &
+      MemberExpression<Mixed, PropertyKey>
+    | {readonly ["type"]: "UnaryExpression"} &
+      UnaryExpression<Mixed>
+    | {readonly ["type"]: "BinaryExpression"} &
+      BinaryExpression<Mixed, Mixed>
+    | {readonly ["type"]: "LogicalExpression"} &
+      LogicalExpression<Mixed, Mixed>;
 
 export type CallableNode
     = {readonly ["type"]: "CallExpression"} & CallExpression
