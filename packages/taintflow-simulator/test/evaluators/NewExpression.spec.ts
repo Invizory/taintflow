@@ -1,8 +1,10 @@
-import "chai/should";
+import {should} from "chai";
 import "mocha";
 import {Identifier, RValue} from "taintflow-types";
 
 import {evaluators} from "../../src";
+
+should();
 
 describe("evaluators.NewExpression", () => {
     context("like `new Error(\"message\")`", () => {

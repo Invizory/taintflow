@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "@types/chalk": "^0.4.31",
-    "@types/commander": "^2.3.31",
     "@types/lodash": "^4.14.52",
     "babel-cli": "^6.23.0",
     "babel-plugin-transform-taintflow": "^0.0.0",

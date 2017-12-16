@@ -28,7 +28,7 @@ export const unaryOperators = <UnaryOperators> {
         const evaluated = argument();
         if (evaluated.kind === ValueKind.PropertyReference) {
             return Reflect.deleteProperty(
-                evaluated.base,
+                Object(evaluated.base),
                 evaluated.propertyKey,
             );
         }

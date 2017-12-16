@@ -38,5 +38,5 @@ class CallableExpressionInterceptor
 }
 
 function isExpressions(nodes: types.Node[]): nodes is types.Expression[] {
-    return nodes.every(types.isExpression);
+    return nodes.every((node) => types.isExpression(node));
 }

@@ -7,14 +7,14 @@ const pkg = require("../package");
 
 const program = new Command("taintflow");
 
-program.outputHelp = function (this: typeof program, ...args: {}[]) {
+program.outputHelp = function (this: typeof program) {
     const email = pkg.author.match(/<.*>/)[0];
     console.log(
         "  %s by %s",
         chalk.dim.cyan("taintflow"),
         chalk.bold(email),
     );
-    Reflect.apply(Command.prototype.outputHelp, this, args);
+    Reflect.apply(Command.prototype.outputHelp, this, arguments);
 };
 
 program
