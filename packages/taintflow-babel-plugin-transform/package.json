@@ -1,5 +1,5 @@
 {
-  "name": "babel-plugin-transform-taintflow",
+  "name": "@taintflow/babel-plugin-transform",
   "version": "0.0.0",
   "description": "Babel plugin for TaintFlow source code instrumentation.",
   "author": "Arthur Khashaev <arthur@khashaev.ru>",
@@ -20,7 +20,7 @@
     "prepare": "rm -rf dist && tsc"
   },
   "devDependencies": {
-    "taintflow-types": "^0.0.0",
+    "@taintflow/types": "^0.0.0",
     "typescript": "^2.2.0"
   },
   "dependencies": {

@@ -1,4 +1,4 @@
-import {EvaluatedExpression, Mixed, nodes} from "taintflow-types";
+import {EvaluatedExpression, Mixed, nodes} from "@taintflow/types";
 
 import * as evaluators from "./evaluators";
 

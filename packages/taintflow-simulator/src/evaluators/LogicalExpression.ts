@@ -1,4 +1,4 @@
-import {Mixed, nodes, QuotedExpression, RValue} from "taintflow-types";
+import {Mixed, nodes, QuotedExpression, RValue} from "@taintflow/types";
 
 import {EvaluatingNode} from "./EvaluatingNode";
 import {logicalOperators} from "./operators/logical";

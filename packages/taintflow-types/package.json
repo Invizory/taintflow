@@ -1,5 +1,5 @@
 {
-  "name": "taintflow-types",
+  "name": "@taintflow/types",
   "version": "0.0.0",
   "description": "TaintFlow types.",
   "author": "Arthur Khashaev <arthur@khashaev.ru>",

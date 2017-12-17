@@ -1,5 +1,5 @@
 {
-  "name": "taintflow-simulator",
+  "name": "@taintflow/simulator",
   "version": "0.0.0",
   "description": "TaintFlow simulator.",
   "author": "Arthur Khashaev <arthur@khashaev.ru>",
@@ -22,7 +22,7 @@
     "typescript": "^2.2.0"
   },
   "dependencies": {
-    "taintflow-types": "^0.0.0",
+    "@taintflow/types": "^0.0.0",
     "@types/lodash": "^4.14.52",
     "lodash": "^4.17.4"
   }

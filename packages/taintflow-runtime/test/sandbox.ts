@@ -1,4 +1,4 @@
-import {taintflowed} from "babel-plugin-transform-taintflow";
+import {taintflowed} from "@taintflow/babel-plugin-transform";
 import * as vm from "vm";
 
 import * as runtime from "../src";

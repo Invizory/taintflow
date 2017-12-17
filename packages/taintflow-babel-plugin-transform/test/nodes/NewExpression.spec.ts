@@ -1,6 +1,7 @@
 import {should} from "chai";
 import "mocha";
-import {Runtime} from "taintflow-types";
+
+import {Runtime} from "@taintflow/types";
 
 import {original, transformed} from "../return-expression";
 
