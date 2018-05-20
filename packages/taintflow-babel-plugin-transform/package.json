@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@taintflow/types": "^0.0.0",
-    "typescript": "^2.2.0"
+    "typescript": "^2.8.3"
   },
   "dependencies": {
     "@types/babel-core": "^6.7.14",

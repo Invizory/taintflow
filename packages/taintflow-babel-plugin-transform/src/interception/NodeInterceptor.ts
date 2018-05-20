@@ -32,7 +32,7 @@ namespace Templates {
         (nodes: {description: types.ObjectExpression}) =>
         types.ExpressionStatement;
 
-    export const interceptor = <Interceptor>
+    export const interceptor = <Interceptor> <{}>
         template("taintflow.intercept(description).value");
 }
 

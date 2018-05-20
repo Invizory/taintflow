@@ -14,8 +14,8 @@ export class CallExpression
        implements EvaluatingNode<Mixed>,
                   nodes.CallExpression {
     public readonly kind = "CallExpression";
-    public readonly callee: QuotedExpression<Function>;
-    public readonly arguments: QuotedArgumentsExpression;
+    public readonly callee!: QuotedExpression<Function>;
+    public readonly arguments!: QuotedArgumentsExpression;
 
     constructor(node: nodes.CallExpression) {
         Object.assign(this, node);

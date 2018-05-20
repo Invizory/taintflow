@@ -12,8 +12,8 @@ export class NewExpression
        implements EvaluatingNode<Mixed>,
                   nodes.NewExpression {
     public readonly kind = "NewExpression";
-    public readonly callee: QuotedExpression<Function>;
-    public readonly arguments: QuotedArgumentsExpression;
+    public readonly callee!: QuotedExpression<Function>;
+    public readonly arguments!: QuotedArgumentsExpression;
 
     constructor(node: nodes.NewExpression) {
         Object.assign(this, node);

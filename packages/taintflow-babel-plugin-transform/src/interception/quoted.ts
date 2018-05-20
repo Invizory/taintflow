@@ -7,7 +7,7 @@ export type QuotedExpression = types.ArrowFunctionExpression;
 export type QuotedExpressions = {readonly [name: string]: QuotedExpression};
 
 export function quotedExpressions(node: types.Node): QuotedExpressions {
-    return <QuotedExpressions> _(node)
+    return <{}> _(node)
         .pickBy((value) => types.isExpression(<{}> value))
         .mapValues(quotedExpression)
         .value();

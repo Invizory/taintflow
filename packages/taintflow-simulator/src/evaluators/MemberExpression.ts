@@ -11,8 +11,8 @@ export class MemberExpression<Object, Property extends PropertyKey>
        implements EvaluatingNode<Mixed>,
                   nodes.MemberExpression<Object, Property> {
     public readonly kind = "MemberExpression";
-    public readonly object: QuotedExpression<Object>;
-    public readonly property: QuotedExpression<Property>;
+    public readonly object!: QuotedExpression<Object>;
+    public readonly property!: QuotedExpression<Property>;
 
     constructor(node: nodes.MemberExpression<Object, Property>) {
         Object.assign(this, node);

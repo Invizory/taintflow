@@ -19,7 +19,7 @@
     "prepare": "rm -rf dist && tsc"
   },
   "devDependencies": {
-    "typescript": "^2.2.0"
+    "typescript": "^2.8.3"
   },
   "dependencies": {
     "@taintflow/types": "^0.0.0",

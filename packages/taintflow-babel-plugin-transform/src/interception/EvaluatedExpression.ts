@@ -29,9 +29,9 @@ namespace Templates {
     export type RValue =
         (nodes: {expression: types.Expression}) => types.ExpressionStatement;
 
-    export const identifier = <Identifier>
+    export const identifier = <Identifier> <{}>
         template("new taintflow.Identifier(() => identifier)");
-    export const rvalue = <RValue>
+    export const rvalue = <RValue> <{}>
         template("new taintflow.RValue(expression)");
 }
 

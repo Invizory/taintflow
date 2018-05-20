@@ -7,9 +7,9 @@ export class BinaryExpression<Left, Right>
        implements EvaluatingNode<BinaryOperatorResult>,
                   nodes.BinaryExpression<Left, Right> {
     public readonly kind = "BinaryExpression";
-    public readonly operator: nodes.BinaryOperator;
-    public readonly left: QuotedExpression<Left>;
-    public readonly right: QuotedExpression<Right>;
+    public readonly operator!: nodes.BinaryOperator;
+    public readonly left!: QuotedExpression<Left>;
+    public readonly right!: QuotedExpression<Right>;
 
     constructor(node: nodes.BinaryExpression<Left, Right>) {
         Object.assign(this, node);
