@@ -20,6 +20,7 @@ describe("intercept", () => {
         it("should follow short-circuit evaluation", () => {
             run(() => {
                 let isEvaluated = false;
+                // tslint:disable-next-line:binary-expression-operand-order
                 false && (() => isEvaluated = true)();
                 return isEvaluated;
             }).should.be.false;

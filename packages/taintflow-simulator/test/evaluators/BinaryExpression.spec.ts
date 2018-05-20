@@ -1,6 +1,7 @@
 import {should} from "chai";
 import "mocha";
-import {RValue} from "taintflow-types";
+
+import {RValue} from "@taintflow/types";
 
 import {evaluators} from "../../src";
 

@@ -22,7 +22,7 @@ To run TaintFlow [Transformer] command line interface, you must have [Node.js]
 with `npm` installed.
 
 ```bash
-npm install -g taintflow-cli
+npm install -g @taintflow/cli
 ```
 
 [Node.js]: https://nodejs.org/
@@ -94,7 +94,7 @@ to provide custom non-standard behaviour.
 Example for brevity:
 
 ```javascript
-import * as taintflow from "taintflow-runtime";
+import * as taintflow from "@taintflow/runtime";
 
 taintflow.extend((intercept) => (node) => {
     // if we are calling some function from instrumented code,

@@ -1,10 +1,11 @@
 import * as _ from "lodash";
+
 import {
     EvaluatedExpression,
     Mixed,
     nodes,
     QuotedExpression,
-} from "taintflow-types";
+} from "@taintflow/types";
 
 import {reflection} from "../../reflection";
 import {Flow, Watchable} from "../Flow";

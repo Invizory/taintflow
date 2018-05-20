@@ -32,11 +32,12 @@ program
 
 process.argv.splice(
     2, 0,
-    "--plugins", require.resolve("babel-plugin-transform-taintflow"),
+    "--plugins", require.resolve("@taintflow/babel-plugin-transform"),
     "--no-babelrc",
     "--source-maps", "inline",
     "--source-type", "script",
     "--copy-files",
 );
 
+// tslint:disable-next-line: no-submodule-imports
 require("babel-cli/bin/babel");

@@ -6,10 +6,8 @@
     "module": "commonjs",
     "declaration": true,
     "sourceMap": true,
-    "strictNullChecks": true,
+    "strict": true,
     "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "skipLibCheck": true /* temporary workaround, remove ASAP */

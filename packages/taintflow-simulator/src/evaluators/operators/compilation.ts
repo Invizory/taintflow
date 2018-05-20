@@ -1,5 +1,5 @@
+import {Mixed} from "@taintflow/types";
 import * as _ from "lodash";
-import {Mixed} from "taintflow-types";
 
 export interface Template {
     operators: ReadonlyArray<string>;

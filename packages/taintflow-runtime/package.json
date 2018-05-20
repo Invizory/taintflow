@@ -1,5 +1,5 @@
 {
-  "name": "taintflow-runtime",
+  "name": "@taintflow/runtime",
   "version": "0.0.0",
   "description": "TaintFlow runtime.",
   "author": "Arthur Khashaev <arthur@khashaev.ru>",
@@ -23,14 +23,14 @@
   "dependencies": {
     "@types/lodash": "^4.14.52",
     "lodash": "^4.17.4",
-    "taintflow-types": "^0.0.0",
-    "taintflow-simulator": "^0.0.0"
+    "@taintflow/types": "^0.0.0",
+    "@taintflow/simulator": "^0.0.0"
   },
   "devDependencies": {
-    "@types/node": "^7.0.5",
-    "babel-plugin-transform-taintflow": "^0.0.0",
-    "browserify": "^14.1.0",
-    "tsify": "^3.0.1",
-    "typescript": "^2.2.0"
+    "@types/node": "^10.1.2",
+    "@taintflow/babel-plugin-transform": "^0.0.0",
+    "browserify": "^16.2.2",
+    "tsify": "^4.0.0",
+    "typescript": "^2.8.3"
   }
 }

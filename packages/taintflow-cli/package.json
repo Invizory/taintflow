@@ -1,5 +1,5 @@
 {
-  "name": "taintflow-cli",
+  "name": "@taintflow/cli",
   "version": "0.0.0",
   "description": "TaintFlow command line interface.",
   "author": "Arthur Khashaev <arthur@khashaev.ru>",
@@ -24,11 +24,11 @@
     "@types/chalk": "^0.4.31",
     "@types/lodash": "^4.14.52",
     "babel-cli": "^6.23.0",
-    "babel-plugin-transform-taintflow": "^0.0.0",
+    "@taintflow/babel-plugin-transform": "^0.0.0",
     "chalk": "^1.1.3",
     "commander": "^2.9.0"
   },
   "devDependencies": {
-    "typescript": "^2.2.0"
+    "typescript": "^2.8.3"
   }
 }
