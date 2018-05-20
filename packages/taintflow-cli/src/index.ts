@@ -39,4 +39,5 @@ process.argv.splice(
     "--copy-files",
 );
 
+// tslint:disable-next-line: no-submodule-imports
 require("babel-cli/bin/babel");

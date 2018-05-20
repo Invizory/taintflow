@@ -28,6 +28,7 @@
     "@types/babel-traverse": "^6.7.15",
     "@types/lodash": "^4.14.43",
     "babel-core": "^6.21.0",
+    "babel-traverse": "^6.26.0",
     "lodash": "^4.17.2"
   }
 }

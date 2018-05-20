@@ -24,6 +24,7 @@
   "dependencies": {
     "@taintflow/types": "^0.0.0",
     "@types/lodash": "^4.14.52",
+    "babel-types": "^6.26.0",
     "lodash": "^4.17.4"
   }
 }

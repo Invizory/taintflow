@@ -6,6 +6,7 @@
     "tslint-microsoft-contrib/recommended_ruleset"
   ],
   "rules": {
+    "no-this-assignment": [true, {"allow-destructuring": true}],
     "newline-before-return": false,
     "no-banned-terms": false,
     "missing-jsdoc": false,

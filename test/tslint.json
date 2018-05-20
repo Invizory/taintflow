@@ -3,6 +3,7 @@
     "../tslint.json"
   ],
   "rules": {
+    "no-implicit-dependencies": false,
     "no-unused-expression": false,
     "no-import-side-effect": [true, {"ignore-module": "mocha"}],
     "max-func-body-length": [true, 100, {"ignore-parameters-to-function-regex": "describe"}],

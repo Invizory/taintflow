@@ -8,7 +8,7 @@ export type UnaryOperators = Operators<UnaryOperator<Mixed>>;
 export type UnaryOperator<Argument> =
     (argument: QuotedExpression<Argument>) => Mixed;
 
-export const unaryOperators = <UnaryOperators> {
+export const unaryOperators: UnaryOperators = {
     ...compile({
         operators: UNARY_OPERATORS,
         expression(operator: string) {
