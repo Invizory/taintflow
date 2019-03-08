@@ -6,6 +6,8 @@
     "tslint-microsoft-contrib/recommended_ruleset"
   ],
   "rules": {
+    "completed-docs": false, /* FIXME: remove before stable release */
+    "export-name": false,
     "no-this-assignment": [true, {"allow-destructuring": true}],
     "newline-before-return": false,
     "no-banned-terms": false,
@@ -14,7 +16,7 @@
     "quotemark": [true, "double", "avoid-escape"],
     "interface-name": [true, "never-prefix"],
     "max-line-length": [true, 80],
-    "max-func-body-length": [true, 11],
+    "max-func-body-length": [true, 15],
     "variable-name": [true, "ban-keywords", "check-format"],
     "trailing-comma": [true, {"singleline": "never", "multiline": "always"}],
     "function-name": [true, {"static-method-regex": "^(\\[\")?[a-z][\\w\\d]+(\"\\])?$"}],

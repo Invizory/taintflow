@@ -7,6 +7,5 @@ export function intercept(node: nodes.Node): EvaluatedExpression<Mixed> {
     return new evaluator(node).evaluate();
 }
 
-interface EvaluatorConstructor {
-    new (node: nodes.Node): evaluators.EvaluatingNode<Mixed>;
-}
+type EvaluatorConstructor =
+    new (node: nodes.Node) => evaluators.EvaluatingNode<Mixed>;
