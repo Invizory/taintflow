@@ -1,6 +1,10 @@
 # Transpiled files for distribution
 dist
 
+# Lockfiles
+package-lock.json
+yarn.lock
+
 # Coverage
 coverage
 .nyc_output

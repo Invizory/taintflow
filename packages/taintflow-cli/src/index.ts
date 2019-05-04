@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import * as chalk from "chalk";
+import chalk from "chalk";
 import {Command} from "commander";
 
 const pkg = require("../package");
