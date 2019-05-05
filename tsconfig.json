@@ -9,7 +9,11 @@
     "strict": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "baseUrl": ".",
+    "paths": {
+      "@taintflow/*": ["../packages/taintflow-*/src"]
+    }
   },
   "include": [
     "src",
