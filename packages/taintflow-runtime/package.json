@@ -17,7 +17,7 @@
     "dist/src"
   ],
   "scripts": {
-    "prepare": "rm -rf dist && tsc && npm run browserify",
+    "prepare": "rm -rf dist && tsc && yarn browserify",
     "browserify": "browserify --debug --standalone taintflow -p [tsify] src/index.ts > dist/src/browser.js"
   },
   "dependencies": {

@@ -11,11 +11,13 @@
   "engines": {
     "node": ">= 7.0.0"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "watch": "npm run prepare && lerna exec -- tsc --watch",
-    "postinstall": "lerna bootstrap",
-    "prepare": "lerna --loglevel=warn run prepare",
-    "pretest": "npm run prepare > /dev/null",
+    "watch": "yarn prepare && lerna exec tsc --watch",
+    "prepare": "lerna run prepare",
+    "pretest": "yarn prepare",
     "test": "nyc mocha 'packages/*/dist/test/**/*.spec.js'",
     "coverage": "nyc report --reporter=json && codecov -t 55f14f73-451a-428f-99ae-239412257cc0 -f coverage/*.json",
     "lint": "tslint 'packages/*/src/**/*.ts' 'packages/*/test/**/*.ts'"
@@ -31,7 +33,7 @@
     "babel-preset-latest": "^6.16.0",
     "chai": "^4.0.0-canary.1",
     "codecov": "^3.0.2",
-    "lerna": "^2.11.0",
+    "lerna": "^3.13.4",
     "mocha": "^5.2.0",
     "nyc": "^11.3.0",
     "tslint": "^5.13.1",
