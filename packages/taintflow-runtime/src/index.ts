@@ -21,7 +21,7 @@ export function extend(extension: Extension): EnabledExtension {
     extensions.push(extension);
     return {
         remove() {
-            _.remove(extensions, extension);
+            _.pull(extensions, extension);
             intercept = _(extensions).reduce((int, ext) => ext(int),
                                              interceptor);
         },

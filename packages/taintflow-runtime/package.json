@@ -21,16 +21,16 @@
     "browserify": "browserify --debug --standalone taintflow -p [tsify] src/index.ts > dist/src/browser.js"
   },
   "dependencies": {
-    "@types/lodash": "^4.14.52",
-    "lodash": "^4.17.4",
+    "@taintflow/simulator": "^0.0.0",
     "@taintflow/types": "^0.0.0",
-    "@taintflow/simulator": "^0.0.0"
+    "@types/lodash": "^4.14.52",
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
-    "@types/node": "^10.1.2",
     "@taintflow/babel-plugin-transform": "^0.0.0",
+    "@types/node": "^12.0.0",
     "browserify": "^16.2.2",
     "tsify": "^4.0.0",
-    "typescript": "^2.8.3"
+    "typescript": "^3.4.5"
   }
 }

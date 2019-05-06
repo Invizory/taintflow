@@ -11,7 +11,7 @@ should();
 
 describe("CallExpression transformer", () => {
     function foo(..._: {}[]) {
-        return null;
+        return "foo";
     }
 
     it("should transform `foo()`", () => {

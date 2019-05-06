@@ -32,7 +32,7 @@ export class PropagationStrategy {
     }
 
     private attachGeneric(node: nodes.Node): typeof node {
-        return <nodes.Node> _(node)
+        return <nodes.Node> <unknown> _(node)
             .mapValues(this.attachIfQuoted.bind(this))
             .value();
     }

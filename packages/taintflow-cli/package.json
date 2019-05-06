@@ -21,13 +21,13 @@
     "prepare": "rm -rf dist && tsc"
   },
   "dependencies": {
+    "@taintflow/babel-plugin-transform": "^0.0.0",
     "@types/lodash": "^4.14.52",
     "babel-cli": "^6.23.0",
-    "@taintflow/babel-plugin-transform": "^0.0.0",
     "chalk": "^2.2.0",
     "commander": "^2.9.0"
   },
   "devDependencies": {
-    "typescript": "^2.8.3"
+    "typescript": "^3.4.5"
   }
 }
