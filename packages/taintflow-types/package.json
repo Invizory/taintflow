@@ -19,7 +19,7 @@
     "prepare": "rm -rf dist && tsc"
   },
   "devDependencies": {
-    "typescript": "^2.8.3"
+    "typescript": "^3.4.5"
   },
   "dependencies": {
     "@types/babel-types": "^7.0.2",
