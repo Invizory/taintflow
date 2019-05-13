@@ -10,7 +10,7 @@ const program = new Command("taintflow");
 program.outputHelp = function (this: typeof program) {
     const email = pkg.author.match(/<.*>/)[0];
     console.log(
-        "  %s by %s",
+        "%s by %s",
         chalk.dim.cyan("taintflow"),
         chalk.bold(email),
     );

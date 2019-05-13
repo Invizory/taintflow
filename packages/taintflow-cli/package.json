@@ -18,7 +18,7 @@
     "dist/index.js"
   ],
   "scripts": {
-    "prepare": "rm -rf dist && tsc"
+    "prepare": "rm -rf dist && tsc && chmod +x dist/index.js"
   },
   "dependencies": {
     "@taintflow/babel-plugin-transform": "^0.0.0",
