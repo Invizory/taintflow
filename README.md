@@ -18,18 +18,28 @@ in code and intercept it.
 
 ### Install
 
-To run TaintFlow [Transformer] command line interface, you must have [Node.js]
-with `npm` installed.
+To install TaintFlow [Transformer] command line interface, you must have
+[Node.js] with [`yarn`] installed. Run:
 
 ```bash
-npm install -g @taintflow/cli
+yarn
+PATH="$PATH:$(yarn bin)"
 ```
 
-[Node.js]: https://nodejs.org/
+In the near future, after the initial release of TaintFlow, we will also
+provide the following way to install it from the [`npm`] global registry:
+
+```bash
+npm install --global @taintflow/cli
+```
+
+[Node.js]: https://nodejs.org
+[`npm`]: https://www.npmjs.com
+[`yarn`]: https://yarnpkg.com
 
 ### Usage
 
-Transform `script.js` with source code instrumentation and output to stdout:
+Transform `script.js` with source code instrumentation and output to `stdout`:
 
 ```bash
 taintflow script.js
@@ -65,13 +75,13 @@ instrumentation.
 Given, for example, a JavaScript code like
 
 ```javascript
-var foo = bar();
+const foo = bar();
 ```
 
 TaintFlow transforms it into the following form:
 
 ```javascript
-var foo = taintflow.intercept({
+const foo = taintflow.intercept({
     type: "CallExpression",
     callee: () => new taintflow.Identifier(() => bar),
     arguments: () => [],
@@ -109,9 +119,26 @@ taintflow.extend((intercept) => (node) => {
 
 Obviously, such extensions can be chained to provide some complex behaviour.
 
+## Taint Analysis
+
+To intercept and taint any data flow in the instrumented environment, you can
+use [`Flow`]:
+
+```javascript
+import {Flow} from "@taintflow/runtime";
+
+const hello = Flow.tainted("hello");
+console.log(Flow.of(hello + "world").isTainted()); // ⇒ true
+```
+
+You can also find some usage examples in the [specification of `Flow`].
+
+[`Flow`]: packages/taintflow-runtime/src/tainter/Flow.ts
+[specification of `Flow`]: packages/taintflow-runtime/test/tainter/Flow.spec.ts
+
 ## Copyright
 
-Copyright © 2016–2017 [Arthur Khashaev]. See [license] for details.
+Copyright © 2018—2019 [Arthur Khashaev]. See [license] for details.
 
 [Arthur Khashaev]: https://khashaev.ru
 [TaintFlow]: https://taintflow.org
