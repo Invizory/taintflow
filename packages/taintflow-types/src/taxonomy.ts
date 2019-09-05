@@ -1,4 +1,4 @@
-export type Mixed = {} | undefined;
+export type Mixed = unknown;
 
 export type QuotedExpression<Value> =
     () => EvaluatedExpression<Value>;
