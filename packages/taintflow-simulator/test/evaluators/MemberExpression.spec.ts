@@ -1,4 +1,4 @@
-import {should} from "chai";
+import {expect, should} from "chai";
 import "mocha";
 
 import {Identifier, RValue} from "@taintflow/types";
@@ -23,7 +23,7 @@ describe("evaluators.MemberExpression", () => {
         });
 
         it("should evaluate", () => {
-            expr.evaluate().value.should.equal(foo.bar);
+            expect(expr.evaluate().value).equal(foo.bar);
         });
 
         it("should be assignable", () => {
