@@ -13,11 +13,11 @@ describe("Flow", () => {
         });
 
         it("should be released as it is", () => {
-            run(() => Flow.of("test").release).should.equal("test");
+            run(() => Flow.of("test").release()).should.equal("test");
         });
 
         it("should be watched as it is", () => {
-            run(() => Flow.of("test").watch).should.equal("test");
+            run(() => Flow.of("test").watch()).should.equal("test");
         });
     });
 

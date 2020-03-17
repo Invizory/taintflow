@@ -1,51 +1,62 @@
-export class Flow<T> {
-    private readonly value: T;
-    private isTaintedValue: boolean;
-
-    private constructor(value: T, isTainted: boolean = false) {
-        this.value = value;
-        this.isTaintedValue = isTainted;
-    }
-
-    public static ["of"]<T>(value: Watchable<T> | T) {
-        if (value instanceof Watchable) {
-            return value.flow;
-        }
-        return new Flow(value);
-    }
-
-    public static tainted<T>(value: T) {
-        return Flow.of(value).taint.watch;
-    }
-
-    public get isTainted() {
-        return this.isTaintedValue;
-    }
-
-    public get taint() {
-        this.isTaintedValue = true;
-        return this;
-    }
-
-    public get release() {
-        return this.value;
-    }
-
-    public alter<V>(value: V) {
-        return new Flow(value, this.isTainted);
-    }
-
-    public get watch(): T {
-        // We're intentionally tricking the type system at this point.
-        // tslint:disable-next-line: no-any
-        return <any> new Watchable(this);
-    }
-}
-
-export class Watchable<T> {
+export class Boxed<T> {
     public readonly flow: Flow<T>;
 
     constructor(flow: Flow<T>) {
         this.flow = flow;
     }
+}
+
+export class Flow<T> {
+    public readonly value: T;
+    public readonly source?: Source;
+
+    private constructor(value: T, source?: Source) {
+        this.value = value;
+        this.source = source;
+    }
+
+    public static ["of"]<T>(value: Boxed<T> | T): Flow<T> {
+        if (value instanceof Boxed) {
+            return value.flow;
+        }
+        return new Flow(value);
+    }
+
+    public static tainted<T>(value: T): T {
+        return Flow.of(value).taint().watch();
+    }
+
+    public get isTainted() {
+        return this.source !== undefined;
+    }
+
+    public taint(meta?: {}): Flow<T> {
+        let {source} = this;
+        if (source === undefined) {
+            source = {
+                error: new Error(),
+                meta,
+            };
+        }
+        return new Flow(this.value, source);
+    }
+
+    public alter<V>(value: V): Flow<V> {
+        return new Flow(value, this.source);
+    }
+
+    public release(): T {
+        return this.value;
+    }
+
+    public watch(): T {
+        // We're intentionally tricking the type system at this point.
+        // tslint:disable-next-line: no-any
+        return <any> new Boxed(this);
+    }
+}
+
+interface Source {
+    error: Error;
+    meta?: {};
 }

@@ -36,7 +36,7 @@ export type CallExpression = CallableExpression;
 export type NewExpression = CallableExpression;
 
 export interface CallableExpression {
-    readonly callee: QuotedExpression<Function>;
+    readonly callee: QuotedExpression<Mixed>;
     readonly arguments: QuotedArgumentsExpression;
 }
 

@@ -8,7 +8,7 @@ import {
 } from "@taintflow/types";
 
 import {reflection} from "../../reflection";
-import {Flow, Watchable} from "../Flow";
+import {Boxed, Flow} from "../Flow";
 import {wrap} from "./wrap";
 
 export class PropagationStrategy {
@@ -28,7 +28,7 @@ export class PropagationStrategy {
         if (!flow) {
             return result;
         }
-        return wrap(result, (value) => flow.alter(value).watch);
+        return wrap(result, (value) => flow.alter(value).watch());
     }
 
     private attachGeneric(node: nodes.Node): typeof node {
@@ -45,7 +45,7 @@ export class PropagationStrategy {
         };
     }
 
-    private attachCallee(callee: EvaluatedExpression<Function>) {
+    private attachCallee(callee: EvaluatedExpression<Mixed>) {
         return wrap(callee, (func) => {
             this.shouldReleaseArguments =
                 _.isFunction(func) &&
@@ -84,10 +84,10 @@ export class PropagationStrategy {
         return wrap(evaluated, (value) => this.release(value));
     }
 
-    private release<T>(value: Watchable<T> | T) {
-        if (value instanceof Watchable) {
+    private release<T>(value: Boxed<T> | T) {
+        if (value instanceof Boxed) {
             this.flow = value.flow;
-            return value.flow.release;
+            return value.flow.release();
         }
         return value;
     }

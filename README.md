@@ -128,7 +128,7 @@ use [`Flow`]:
 import {Flow} from "@taintflow/runtime";
 
 const hello = Flow.tainted("hello");
-console.log(Flow.of(hello + "world").isTainted()); // ⇒ true
+console.log(Flow.of(hello + "world").isTainted); // ⇒ true
 ```
 
 You can also find some usage examples in the [specification of `Flow`].
