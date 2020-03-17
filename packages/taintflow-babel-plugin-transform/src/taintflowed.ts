@@ -5,7 +5,8 @@ import {plugin} from "./plugin";
 export function taintflowed(source: string) {
     const {ast, code} = transform(source, {
         plugins: [
-            "transform-es2015-arrow-functions",
+            // tslint:disable-next-line
+            require("babel-plugin-transform-es2015-arrow-functions"),
             plugin,
         ],
     });
