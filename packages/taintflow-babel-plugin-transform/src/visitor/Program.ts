@@ -1,7 +1,7 @@
 import {types} from "babel-core";
 import {NodePath} from "babel-traverse";
 
-const content = " https://taintflow.org/transformed ";
+const content = " taintflow:transformed ";
 
 export namespace Program {
     export function enter(path: NodePath<types.Program>) {

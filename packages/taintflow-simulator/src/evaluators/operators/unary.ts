@@ -13,6 +13,7 @@ export const unaryOperators: UnaryOperators = {
         operators: UNARY_OPERATORS,
         expression(operator: string) {
             return `(function taintflowUnaryOperator(argument) {
+                /* taintflow:ignore */
                 return ${operator} argument().value;
             })`;
         },

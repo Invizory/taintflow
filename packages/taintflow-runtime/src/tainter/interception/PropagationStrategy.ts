@@ -47,7 +47,9 @@ export class PropagationStrategy {
 
     private attachCallee(callee: EvaluatedExpression<Function>) {
         return wrap(callee, (func) => {
-            this.shouldReleaseArguments = !reflection.isInstrumented(func);
+            this.shouldReleaseArguments =
+                _.isFunction(func) &&
+                !reflection.isInstrumented(func);
             return func;
         });
     }

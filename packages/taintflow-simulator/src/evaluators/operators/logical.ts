@@ -12,6 +12,7 @@ export const logicalOperators = <LogicalOperators> compile({
     operators: LOGICAL_OPERATORS,
     expression(operator: string) {
         return `(function taintflowLogicalOperator(left, right) {
+            /* taintflow:ignore */
             return left().value ${operator} right().value;
         })`;
     },

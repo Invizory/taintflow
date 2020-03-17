@@ -15,6 +15,7 @@ export const binaryOperators = <BinaryOperators> compile({
     operators: BINARY_OPERATORS,
     expression(operator: string) {
         return `(function taintflowBinaryOperator(left, right) {
+            /* taintflow:ignore */
             return left().value ${operator} right().value;
         })`;
     },
