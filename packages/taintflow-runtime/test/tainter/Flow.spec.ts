@@ -71,4 +71,12 @@ describe("Flow", () => {
             return Flow.of(method).isTainted;
         }).should.be.true;
     });
+
+    context("tainted property in tainted object", () => {
+        it("should remain the same after tainting", () => {
+            run(() => {
+                return Flow.tainted({foo: Flow.tainted("bar")}).foo === "bar";
+            }).should.be.true;
+        });
+    });
 });

@@ -46,7 +46,11 @@ export class Flow<T> {
     }
 
     public release(): T {
-        return this.value;
+        let {value} = this;
+        while (value instanceof Boxed) {
+            value = value.flow.value;
+        }
+        return value;
     }
 
     public watch(): T {
